@@ -2,7 +2,7 @@
 const Sidebar = ()=>{
     return(
         <>
-            <p>Barra Lateral</p>
+            <p>Editado Por Carlos</p>
         </>
     )
 }
