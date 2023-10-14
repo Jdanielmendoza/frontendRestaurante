@@ -1,18 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
-import Sidebar from './components/Sidebar.jsx';
-
+import Dashboardview from './components/Dashboardview';
+import Sidebar from './components/Sidebar';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Sidebar/>
-    </>
+    <div className='flex'>
+      <div className='basis-[12%] h-[100vh]'>
+        <Sidebar/>
+      </div>
+
+      <div className='basis-[88%] border'>
+        <Dashboardview/>
+      </div>
+    </div>
   )
 }
 
