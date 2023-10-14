@@ -1,7 +1,7 @@
 import './App.css'
 import Dashboardview from './components/Dashboard';
 import Sidebar from './components/Sidebar';
-
+import product from "/product.svg"; 
 function App() {
 
   return (
@@ -12,6 +12,7 @@ function App() {
 
       <div className='basis-[88%] border'>
         <Dashboardview/>
+        <img src={product} alt="product" />
       </div>
     </div>
   )
