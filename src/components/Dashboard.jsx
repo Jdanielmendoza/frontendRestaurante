@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa"
+/* import { FaSearch } from "react-icons/fa" */
 
 const Dashboardview = ()=>{
     return(
@@ -8,7 +8,7 @@ const Dashboardview = ()=>{
                     w-[350px] rounded-[5px]' placeholder="Search for.."
                 />
                 <div className="bg-[#4E73DF] h-[40px] px-[14px] flex items-center justify-center cursor-pointer rounded-[5px] rounded-tr-[5px] rounded-br-[5px]">
-                    <FaSearch color="white"/>
+                   {/*  <FaSearch color="white"/> */}
                 </div>
 
                 <div>

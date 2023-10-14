@@ -1,5 +1,5 @@
 import './App.css'
-import Dashboardview from './components/Dashboardview';
+import Dashboardview from './components/Dashboard';
 import Sidebar from './components/Sidebar';
 
 function App() {
