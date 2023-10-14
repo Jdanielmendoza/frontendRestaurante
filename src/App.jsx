@@ -1,5 +1,5 @@
 import './App.css'
-import Dashboardview from './components/Dashboardview';
+// import Dashboardview from './components/Dashboardview';
 import Sidebar from './components/Sidebar';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       </div>
 
       <div className='basis-[88%] border'>
-        <Dashboardview/>
+        {/* <Dashboardview/> */}
       </div>
     </div>
   )
