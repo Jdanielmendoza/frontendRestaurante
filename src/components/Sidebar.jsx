@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 import {FaBolt, FaChevronLeft, FaChevronRight, FaRegCalendar, FaRegChartBar, FaRegSun, FaStickyNote, FaTachometerAlt, FaWrench} from 'react-icons/fa';
 
@@ -80,15 +79,6 @@ const Sidebar = ()=>{
             </div>
            
         </div>
-=======
-import icono from "/icono.svg"
-const Sidebar = ()=>{
-    return(
-        <>
-            <p>Editado Por Ronald</p>
-            <img src={icono} alt="icono" />
-        </>
->>>>>>> 23ce3762fe44286534f92fd23b884beff472092d
     )
 }
 
