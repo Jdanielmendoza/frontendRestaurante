@@ -1,19 +1,14 @@
 import './App.css'
-// import Dashboardview from './components/Dashboardview';
+import CrearUsuario from './components/CrearUsuario';
+import Dashboardview from './components/Dashboard';
 import Sidebar from './components/Sidebar';
-
+import product from "/product.svg"; 
 function App() {
 
   return (
-    <div className='flex'>
-      <div className='basis-[12%] h-[100vh]'>
-        <Sidebar/>
-      </div>
-
-      <div className='basis-[88%] border'>
-        {/* <Dashboardview/> */}
-      </div>
-    </div>
+    <>
+      <Sidebar/>
+    </>
   )
 }
 
