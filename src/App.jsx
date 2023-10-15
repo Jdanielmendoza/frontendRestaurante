@@ -1,11 +1,12 @@
 import './App.css'
-import Sidebar from './components/Sidebar.jsx';
-import FormularioLogin from './components/FormularioLogin/FormularioLogin';
+import CrearUsuario from './components/CrearUsuario';
+import Dashboardview from './components/Dashboard';
+import Sidebar from './components/Sidebar';
+import product from "/product.svg"; 
 function App() {
   return (
     <>
-      {/* <Sidebar/> */}
-      <FormularioLogin/>
+      <Sidebar/>
     </>
   )
 }
