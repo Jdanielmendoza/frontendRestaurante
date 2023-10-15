@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&family=Titan+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ContenedorFormLogin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fcf2ff;
+  padding: 0;
+  margin: 0;
+}
+
+.TituloFormLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*Para Centrar*/
+  width: 100%;
+  background-color: #6c5fbc;
+  min-height: 65px;
+  font-size: 38px;
+  color: #fff;
+  font-family: "Titan One";
+}
+
+.ContainerIniciarSesionLogo {
+  display: flex;/*alinea en fila*/
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Rowdies";
+  color: #fff;
+  height: calc(100vh - 65px);   
+}
+
+.containerTitleForm {
+  box-shadow: 2px 2px 5px 5px #7765;
+  max-width: 700px;
+  max-height: 500px;
+  border-radius: 10px;
+}
+.titleIniciarSesion {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px 10px 0px 0px;
+  background: #6c5fbc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border: 3px solid black;
+  /*ocupamos px o ren en "font-size"
+  como maximo 38 pixeles*/
+}
+.FormularioLogin {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 0px 10px 10px;
+  background: #fff;
+  border: 3px solid black;
+  padding: 30px 30px 50px 30px;
+}
+
+.GrupUserImgLabelinput {
+  display: flex;
+  justify-content: flex-start; /*pone a la izquierda*/
+  /*horizontal*/
+  align-items: flex-end;
+  /*vertical*/
+  padding: 10px;
+  /*padding solo px*/
+}
+
+.GrupUserLabelInput {
+  text-align: left;
+  width: 100%;
+}
+.IconoUser {
+  width: 51px;
+  height: 51px;
+}
+.labelUser {
+  width: 129.231px;
+  color: #000;
+  text-align: center;
+  font-family: Rowdies;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.inputUser {
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+  fill: #fff;
+  stroke-width: 6px;
+  stroke: #000;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  font-size: 24px;
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+.GrupPassImgLabelInput {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px;
+}
+.GrupPassLabelInput {
+  text-align: left;
+  width: 100%;
+}
+.IconoPassword {
+  width: 51px;
+  height: 51px;
+}
+.labelPassword {
+  color: #000;
+  text-align: center;
+  font-family: Rowdies;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.inputPasswor {
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+  fill: #fff;
+  stroke-width: 6px;
+  stroke: #000;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  font-size: 24px;
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+.inputEnter {
+  width: calc(100% - 70px);
+  height: 50px;
+  border-radius: 10px;
+  border: 5px solid #150808;
+  background: #6c5fbc;
+  font-size: 24px;
+  font-family: "Rowdies";
+  margin-left: 50px;
+  color: #fff;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  cursor:pointer ;
+}
+.containerLogoOso {
+  /* width: 50%;
+  background-color: red;
+  width: 600px; */
+  
+}
+.containerLogoOso>img{
+  width : 550px;
+}
