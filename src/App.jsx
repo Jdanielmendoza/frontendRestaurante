@@ -4,14 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Sidebar from './components/Sidebar.jsx';
-
+import FormularioLogin from './components/FormularioLogin/FormularioLogin';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Sidebar/>
+      {/* <Sidebar/> */}
+      <FormularioLogin/>
     </>
   )
 }
