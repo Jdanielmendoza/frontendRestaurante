@@ -1,84 +1,80 @@
 
-/* import {FaBolt, FaChevronLeft, FaChevronRight, FaRegCalendar, FaRegChartBar, FaRegSun, FaStickyNote, FaTachometerAlt, FaWrench} from 'react-icons/fa'; */
+import iconoInicio from '/iconoInicio.svg';
+import iconoUsuario from '/iconoUsuario.svg';
+import iconoProducto from '/iconoProducto.svg';
+
+import iconoCartilla from '/iconoCartilla.svg';
+import iconoInsumo from '/iconoInsumo.svg';
+import iconoMesa from '/iconoMesa.svg';
+import iconoNotaSalida from '/iconoNotaSalida.svg';
+import iconoReporte from '/iconoReporte.svg';
+import iconoCerrarSesion from '/iconoCerrarSesion.svg';
+
+import IconoDrop from '/iconoDrop.svg';
 
 const Sidebar = ()=>{
     return(
-        <div className= 'bg-[#4E73DF] h-screen px-[25px]'>
-            <div className="px-[15px] py-[30px] flex items-center justify-center border-b-[1px] border-[#EDEDED]/[0.3]">
-                <h1 className="text-white text-[20px] leading-[24px] font-extrabold cursor-pointer">Admin Panel</h1>
+       <div className='bg-red-700 ml-auto'>
+            <div className='block items-center justify-center'>
+                {/* imagen */}
+                <div className='bg-orange-100'>p</div>
+                <p className="text-zinc-500 text-sm font-bold font-['Rowdies']">Daniel Mendoza</p>
             </div>
 
-            <div className='flex item-center gap-[15px]  py-[20px] border-b-[1px] border-[#EDEDED]/[0.3]'>
-               {/*  <FaTachometerAlt color = 'white'/> */}
-                <p
-                    className='text-[14px] leading-[20px] font-bold text-white'
-                >Dashboard
-                </p>
+{/* agregar de sugerencia font-['Rowdies'] junto con font-bold */}
+            <div className='bg-custom-color flex gap-3 mt-[15px]'>
+                <img src ={iconoInicio} alt = "iconoInicio" />
+                <label className="text-zinc-500 text-sm font-bold">Inicio</label>
+                <img src ={IconoDrop} alt = "iconoDropDown" className='ml-auto' />
             </div>
 
-            <div className='pt-[15px] border-b-[1px] border-[#EDEDED]/[0.3]'>
-                <p className='text-[10px] font-extrabold leading-[16px] text-white/[0.4]'>INTERFACE </p>
-                <div className='flex items-center justify-between gap-[10px] py-[15px] cursor-pointer'>
-                    <div className='flex items-center gap-[10px]'>
-                       {/*  <FaRegSun color='white'/> */}
-                        <p className='text-[14px] leading-[20px] font-normal text-white' >Pages</p>
-                    </div>
-                    {/* Es un componenta extradio de la libreria */}
-                   {/*  <FaChevronRight color='white'/>  */}
-                </div>
-
-                <div className=' flex items-center justify-between gap-[10px] py-[15px] cursor-pointer'>
-                    <div className='flex items-center gap-[10px]'>
-                        {/* <FaRegChartBar color='white'/> */}
-                        <p className='text-[14px] leading-[20px] font-normal text-white'>Charst</p>
-                    </div>
-                    {/* Es un componenta extradio de la libreria */}
-                    {/* <FaChevronRight color='white'/>  */}
-                </div>
+            <div className='flex gap-3  mt-[15px]'>
+                <img src ={iconoUsuario} alt = 'iconoUsuario' />
+                <label className="text-zinc-500 text-sm font-bold">Usario</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto'/>
             </div>
 
-
-            <div className='pt-[15px] border-b-[1px] border-[#EDEDED]/[0.3] pb-[15px]'>
-                <p className='text-[10px] font-extrabold leading-[16px] text-white/[0.4]'>ADDONS </p>
-                <div className='flex items-center justify-between gap-[10px] py-[15px] cursor-pointer'>
-                    <div className='flex items-center gap-[10px]'>
-                        {/* <FaStickyNote color='white'/> */}
-                        <p className='text-[14px] leading-[20px] font-normal text-white' >Components</p>
-                    </div>
-                    {/* Es un componenta extradio de la libreria */}
-                    {/* <FaChevronRight color='white'/>  */}
-                </div>
-
-                <div className=' flex items-center justify-between gap-[10px] py-[15px] cursor-pointer'>
-                    <div className='flex items-center gap-[10px]'>
-                       {/*  <FaWrench color='white'/> */}
-                        <p className='text-[14px] leading-[20px] font-normal text-white'>Utiliteies</p>
-                    </div>
-                    {/* Es un componenta extradio de la libreria */}
-                   {/*  <FaChevronRight color='white'/>  */}
-                </div>
-
-                <div className='flex items-center gap-[10px] py-[15px]'>
-                        {/* <FaRegCalendar color='white'/> */}
-                        <p className='text-[14px] leading-[20px] font-normal text-white'>Tables</p>
-                </div>
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoProducto} alt = "iconoProducto" />
+                <label className="text-zinc-500 text-sm font-bold">Producto</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto' />
             </div>
 
-            <div>
-                <div className='flex items-center justify-center pt-[15px]'>
-                    <div className='h-[40px] w-[40px] bg-[#3C5EC1] rounded-full flex items-center justify-center cursor-pointer'>
-                        {/* <FaChevronLeft color='white'/> */}
-                    </div>
-                </div>
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoCartilla} alt = "iconoCartilla" />
+                <label className="text-zinc-500 text-sm font-bold">Cartilla</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto' />
             </div>
 
-            <div className='bg-[#3C5EC1] mt-[15px] flex items-center justify-center flex-col py-[15px] px-[10px] gap-[15px] rounded-[3px]'>
-              {/*   <FaBolt color='white'/> */}
-                <p className='text-[12px] leading-[18px] font-normal text-white/[0.4] text-center'> Lorem ipsum adipisicing elit. placeat pariatur minus quo ex quidem laboriosam.</p>
-                <button className='bg-[#17A673] text-white flex items-center justify-center h-[30] w-full rounded-[3px] text-[14px] leading-[21px] font-normal'>Upgrade to Pro!</button>
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoInsumo} alt = "iconoInsumo" />
+                <label className="text-zinc-500 text-sm font-bold">Insumo</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"   className='ml-auto'/>
             </div>
-           
-        </div>
+
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoMesa} alt = "iconoMesa" />
+                <label className="text-zinc-500 text-sm font-bold ">Mesas</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto'/>
+            </div>
+
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoNotaSalida} alt = "iconoNotaSalida" />
+                <label className="text-zinc-500 text-sm font-bold">Nota de Salida</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto'/>
+            </div>
+
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoReporte} alt = "iconoReporte" />
+                <label className="text-zinc-500 text-sm font-bold ">Reportes</label>
+                <img src ={IconoDrop} alt = "iconoDropDown"  className='ml-auto'/>
+            </div>
+
+            <div className='flex gap-3 mt-[15px]'>
+                <img src ={iconoCerrarSesion} alt = "iconoCerrarSesion" />
+                <label className="text-zinc-500 text-sm font-bold">Cerrar Sesión</label>
+            </div>
+       </div>
     )
 }
 
