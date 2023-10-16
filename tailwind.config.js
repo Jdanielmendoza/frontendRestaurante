@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
-        'custom-color': '#8960FE',
+        'custom-color' : '#8960FE',
+        'customColorFondo' : '#D4CEF8',
       },
     },
   },
