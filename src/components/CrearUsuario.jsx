@@ -35,7 +35,7 @@ const CrearUsuario = ()=>{
                         <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" placeholder="Tu CI" />
 
                         <label className="mb-3 block uppercase font-normal text-left mt-5">Contraseña</label>
-                        <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" placeholder="Tu Contraseña" type="email" />
+                        <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" placeholder="Tu Contraseña" type="password" />
 
                         <div>
                         <label className="mb-3 block uppercase font-normal text-left mt-5">Genero</label>
@@ -46,7 +46,7 @@ const CrearUsuario = ()=>{
                     {/* Derecho */}
                     <div className="w-full md:w-1/2 mt-5 md:mt-0">
                         <label className="mb-3 block uppercase font-normal text-left">Telefono</label>
-                        <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" placeholder="Tu Telefono" type="tel" />
+                        <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" placeholder="Tu Telefono" type="number" />
 
                         <label className="mb-3 block uppercase font-normal text-left mt-5">Fecha</label>
                         <input className="shadow-sm rounded-lg border-2 border-purple-400 w-full p-3" type="date" />

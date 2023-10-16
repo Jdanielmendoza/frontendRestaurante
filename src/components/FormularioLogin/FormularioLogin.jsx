@@ -3,14 +3,24 @@ import "./FormularioLogin.css";
 import userLogin from "/icon-userLogin.svg";
 import password from "/password.svg";
 import Oso from "/OsoRuedaLogo.png";
+import { Toaster } from 'react-hot-toast';
+import { loginUser } from "../../apiServices/apiServices.js";
+import { useState } from "react";
+
 const FormularioLogin = () => {
+  const [nombre, setNombre] = useState("");
+  const [contraseña, setContraseña] = useState("");
+
   return (
     <div className="ContenedorFormLogin">
       <div className="TituloFormLogin">OSO RUEDA</div>
       <div className="ContainerIniciarSesionLogo">
         <div className="containerTitleForm">
           <div className="titleIniciarSesion">Iniciar Sesión</div>
-          <form className="FormularioLogin">
+          <form className="FormularioLogin" onSubmit={(e)=>{
+            e.preventDefault(); 
+            loginUser(nombre,contraseña)}
+          }>
             <div className="GrupUserImgLabelinput">
               <img
                 className="IconoUser"
@@ -27,10 +37,11 @@ const FormularioLogin = () => {
                   className="inputUser"
                   id="inputUserId"
                   placeholder="Usuario"
+                  onChange={(e)=> {setNombre(e.target.value) }}
+                  required
                 />
               </div>
             </div>
-
             <div className="GrupPassImgLabelInput">
               <img
                 className="IconoPassword"
@@ -47,6 +58,8 @@ const FormularioLogin = () => {
                   className="inputPasswor"
                   id="inputPasswordId"
                   placeholder="Password"
+                  onChange={(e)=>{setContraseña(e.target.value)}}
+                  required
                 />
               </div>
             </div>
@@ -57,6 +70,7 @@ const FormularioLogin = () => {
           <img src={Oso} alt="osoLogo" />
         </div>
       </div>
+      <Toaster/> 
     </div>
   );
 };

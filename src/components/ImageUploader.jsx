@@ -18,13 +18,14 @@ const ImageUploader=()=> {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: 'image/*', // Aceptar solo archivos de imagen
+    
   });
 
   return (
     <div className='bg-fcf2ff flex items-center justify-center'>
       <div {...getRootProps()} className="dropzone">
         <input {...getInputProps()} />
-        <iconoDescarga/>
+        <img src={iconoDescarga} alt="icono de descarga" />
         <p >Arrastra una imagen aquí o haz clic para seleccionar una.</p>
       </div>
       {image && <img src={image} alt="Imagen cargada" />}

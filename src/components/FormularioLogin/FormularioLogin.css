@@ -40,10 +40,11 @@
 
 .containerTitleForm {
   box-shadow: 2px 2px 5px 5px #7765;
-  max-width: 700px;
+  max-width: 600px;
   max-height: 500px;
   border-radius: 10px;
 }
+
 .titleIniciarSesion {
   width: 100%;
   height: 50px;
@@ -97,15 +98,11 @@
 .inputUser {
   width: 100%;
   height: 50px;
-  flex-shrink: 0;
-  fill: #fff;
-  stroke-width: 6px;
-  stroke: #000;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   font-size: 24px;
   padding: 10px;
   border: 5px solid black;
   border-radius: 10px;
+  color: #000; 
 }
 .GrupPassImgLabelInput {
   display: flex;
@@ -133,28 +130,27 @@
 .inputPasswor {
   width: 100%;
   height: 50px;
-  flex-shrink: 0;
-  fill: #fff;
-  stroke-width: 6px;
-  stroke: #000;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   font-size: 24px;
   padding: 10px;
   border: 5px solid black;
   border-radius: 10px;
+  color: #150808;
 }
-.inputEnter {
+
+input[type="submit"]{
+  background-color: #6c5fbc;
+}
+.inputEnter{
   width: calc(100% - 70px);
   height: 50px;
   border-radius: 10px;
   border: 5px solid #150808;
-  background: #6c5fbc;
   font-size: 24px;
   font-family: "Rowdies";
-  margin-left: 50px;
-  color: #fff;
   margin-top: 50px;
+  margin-left: 50px;
   margin-bottom: 10px;
+  color: #ffffff ;
   cursor:pointer ;
 }
 .containerLogoOso {
