@@ -2,6 +2,7 @@ import './App.css'
 import Sidebar from './components/Sidebar.jsx';
 import FormularioLogin from './components/FormularioLogin/FormularioLogin';
 import CambiarPassword from './components/cambiarPassword/cambiarPassword';
+import Layout from './pages/Layout';    
 function App() {
   return (
     <>
@@ -11,4 +12,5 @@ function App() {
     </>
   )
 }
+
 export default App
