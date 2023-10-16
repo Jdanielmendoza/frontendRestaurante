@@ -1,15 +1,14 @@
 import './App.css'
-// import CrearUsuario from './components/CrearUsuario';
-// import Dashboardview from './components/Dashboard';
-// import Sidebar from './components/Sidebar';
-// import product from "/product.svg"; 
-import Layout from './pages/Layout';
-// import Inicio from './components/Inicio';
-
+import Sidebar from './components/Sidebar.jsx';
+import FormularioLogin from './components/FormularioLogin/FormularioLogin';
+import CambiarPassword from './components/cambiarPassword/cambiarPassword';
+import Layout from './pages/Layout';    
 function App() {
   return (
     <>
-      <Layout/>
+      {/* <Sidebar/> */}
+      {/* <FormularioLogin/> */}
+      <CambiarPassword/>
     </>
   )
 }
