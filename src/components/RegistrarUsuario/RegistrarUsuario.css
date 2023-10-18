@@ -1,0 +1,94 @@
+.containerFormRegistro{
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.formRegistro{
+    width: 100%;
+    display:grid; 
+    grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
+}
+
+.formRegistro>div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.formRegistro>div>label{
+    font-family: 'Roboto';
+    color: #565558;
+    font-weight: 500;
+}
+.inputRegister{
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #855FF1;
+    border-radius: 10px;
+}
+
+.itemRegister{
+    margin-top: 20px;
+    background-color: #FCF2FF;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.selectOption{
+    width: 100%;
+    padding: 5px;
+}
+.selectOption>select{
+    width: 100%;
+    padding: 10px ;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #855FF1;
+    color: #565558;
+}
+.selectOption>select:hover{
+    background-color: #eee6ff;
+}
+.selectOption>select>option{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.divSubmitButtonRegister{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submitButtonRegister{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+
+}
+
+
+
+
+@media (width < 430px){
+    .containerFormRegistro{
+        padding: 10px;
+    }
+}
+@media (width > 1000px){
+    .formRegistro{
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+        gap: 20px;
+    }
+}

@@ -6,7 +6,7 @@ import ImageUploader from './ImageUploader.jsx';
 const CrearUsuario = ()=>{
     return(
 
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen bg-white">
             <form className=" p-[25px]">
                 {/* Superior */}
                 <div className="flex flex-col sm:flex-row sm:px-10 sm:py-5">

@@ -6,7 +6,6 @@ const config = {
   position: "top-center",
 };
 export const loginUser = async (nombre, contraseña) => {
-
   if (nombre.length > 3) {
     if (contraseña.length > 4) {
       const dataUser = {
@@ -27,8 +26,9 @@ export const loginUser = async (nombre, contraseña) => {
         console.log(response);
 
         localStorage.setItem("token", response.data?.token);
-        localStorage.setItem("user", response.data?.name);
-        //window.location.href = "/";
+        localStorage.setItem("usuario", response.data?.data?.nombre);
+        localStorage.setItem("imagen", response.data?.data.imagen);
+        window.location.href = "/";
       } catch (error) {
         console.log(error);
         const messageError = error.response?.data?.message;
@@ -39,5 +39,43 @@ export const loginUser = async (nombre, contraseña) => {
     }
   } else {
     toast.error("nombre muy corto", config);
+  }
+};
+
+export const registerNewUser = async ({
+  imagen,
+  ci,
+  nombre,
+  telefono,
+  correo,
+  fechaDeNacimiento,
+  contraseña,
+  sexo,
+  id_rol
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/user/registro";
+    const sendUser = axios.post(url, {
+      imagen,
+      ci,
+      nombre,
+      telefono,
+      correo,
+      fechaDeNacimiento,
+      contraseña,
+      sexo,
+      id_rol
+    });
+
+    const result = await toast.promise(sendUser, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
   }
 };

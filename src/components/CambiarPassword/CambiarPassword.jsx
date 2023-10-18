@@ -17,7 +17,7 @@ const CambiarPassword = () => {
           </label>
           <input
             type="password"
-            className="inputPasswordAnci"
+            className="inputF inputPasswordAnci"
             id="inputPasswordAnciId"
             placeholder="Antigua Contraseña"
           ></input>
@@ -29,7 +29,7 @@ const CambiarPassword = () => {
           </label>
           <input
             type="password"
-            className="inputPasswordNew"
+            className="inputF inputPasswordNew"
             id="inputPasswordNewId"
             placeholder="Nueva Contraseña"
           ></input>
@@ -41,7 +41,7 @@ const CambiarPassword = () => {
           </label>
           <input
             type="password"
-            className="inputPasswordVeri"
+            className="inputF inputPasswordVeri"
             id="inputPasswordVeriId"
             placeholder="Verificación De Contraseña"
           ></input>
@@ -50,7 +50,7 @@ const CambiarPassword = () => {
         <input
           type="submit"
           value="CAMBIAR CONTRASEÑA"
-          className="inputNewPassword"
+          className="inputF inputNewPassword"
         ></input>
       </div>
     </div>
