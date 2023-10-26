@@ -35,6 +35,7 @@ function App() {
             }
           />
         </Route>
+        
         <Route path="*" element={<div>ruta no encontrada</div>} />
       </Routes>
     </>

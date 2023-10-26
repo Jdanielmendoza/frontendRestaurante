@@ -152,7 +152,6 @@ const RegistrarUsuario = () => {
           <select
             id="inputSexo"
             onChange={(e) => {
-              console.log(e);
               setSexo(e.target.value);
             }}
           >
