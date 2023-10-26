@@ -1,0 +1,21 @@
+.containerButton{
+    width: 100%;
+    padding: 5px;
+    padding-right: 15px;
+    display: flex;
+}
+.iconoButton{
+    color: #898484;
+    padding-right: 7px;
+}
+
+.tituloButton{
+    font-family: 'Rowdies', sans-serif;
+    color: #898484;
+}
+.containerButton:hover .tituloButton{
+    text-decoration: underline;
+}
+.containerButton:hover .iconoButton{
+    color: #6C5FBC;
+}

@@ -15,7 +15,7 @@ const PaymentType = () => {
           placeholder="Nombre Del Tipo De Pago"
         ></input>
         <input type="submit" 
-        value={AGREGAR} 
+        value="AGREGAR"
         className="inputAgregar"
         ></input>
       </div>

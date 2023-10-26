@@ -16,7 +16,7 @@ const DropDown = ()=>{
     }
 
     return(
-        <div className='p-15'>
+        <div className='p-15 '>
             <Select
                 options = {Supplier}
                 onChange={handleSelectChange}
