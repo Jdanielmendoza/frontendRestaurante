@@ -6,11 +6,11 @@ import RegistrarUsuario from "./components/RegistrarUsuario/RegistrarUsuario";
 import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Inicio from "./Views/Inicio/Inicio";
+import Usuario from "./Views/Usuario/Usuario";
 import PaymentType from "./components/PaymentType/PaymentType";
-import TarjetaDeReporteDeInicio from "./components/TarjetaDeReporteDeInicio/TarjetaDeReporteDeInicio";
-import Money from "/Money.png";
-import CarritoDeCompras from "/CarritoDeCompras.png";
-import Timbre from "/Timbre.png";
+import Productos from "./Views/Productos/Productos";
+
 function App() {
   return (
     <>
@@ -21,15 +21,43 @@ function App() {
             <ProtectorDeRutas permisos={localStorage.getItem("token")} />
           }
         >
-          <Route path="/" element={<Dashboard />} />
           <Route
-            path="/registro"
+            path="/"
             element={
               <Dashboard>
-                <RegistrarUsuario />
+                <Inicio />
               </Dashboard>
             }
           />
+          <Route>
+            <Route
+              path="/usuario"
+              element={
+                <Dashboard>
+                  <Usuario />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/registro"
+              element={
+                <Dashboard>
+                  <RegistrarUsuario />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/productos"
+              element={
+                <Dashboard>
+                  <Productos />
+                </Dashboard>
+              }
+            />
+          </Route>
           <Route
             path="/cambiarContraseña"
             element={
@@ -39,46 +67,9 @@ function App() {
             }
           />
         </Route>
-        
+
         <Route path="*" element={<div>ruta no encontrada</div>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
-        <Route
-          path="/rutaDePrueva"
-          element={
-            <div>
-              <TarjetaDeReporteDeInicio
-                ImgDeTarjeta={Money}
-                ColorDeFondo="#161f41"
-                ColorDeFondoDeImg="rgba(80, 210, 85, 0.59)"
-                iconoPortada=""
-                tituloDeNumero="376"
-                tituloDeValorDeNumero="bs"
-                descripcion="Ingreso Por Ventas"
-                detalle="(hoy dia)"
-              />
-              <TarjetaDeReporteDeInicio
-                ImgDeTarjeta={Timbre}
-                ColorDeFondo="#231864"
-                ColorDeFondoDeImg="#FFB611"
-                iconoPortada=""
-                tituloDeNumero="113"
-                tituloDeValorDeNumero="Total"
-                descripcion="Cantidad De Ventas"
-                detalle="(De La Semna)"
-              />
-              <TarjetaDeReporteDeInicio
-                ImgDeTarjeta={CarritoDeCompras}
-                ColorDeFondo="#0C405E"
-                ColorDeFondoDeImg="#E62D65"
-                iconoPortada=""
-                tituloDeNumero="42"
-                tituloDeValorDeNumero="Total"
-                descripcion="Productos De Salida"
-                detalle="(De La Semana)"
-              />
-            </div>
-          }
-        />
       </Routes>
     </>
   );

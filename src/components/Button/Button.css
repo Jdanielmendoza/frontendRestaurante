@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=M+PLUS+Rounded+1c:wght@400;700&family=Rowdies&family=Titan+One&display=swap");
+
+.containerButton{
+    background-color: #6C5FBC;
+    width: 100%;
+    max-width: fit-content;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+}
+
+.containerButton>p{
+    margin-right: 10px;
+}
