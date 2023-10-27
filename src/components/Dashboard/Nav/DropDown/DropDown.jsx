@@ -1,20 +1,32 @@
 import "./DropDown.css";
 import { IconChevronDown } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
-const DropDown = ({ icono, titulo,children }) => {
+const DropDown = ({ icono, titulo, NavigateTo= '/' ,  children }) => {
   return (
-    <details className="containerDropDown" >
-      <summary className="iconTitleArrowDropDown">
-        <div className="iconTitleDropDown">
-          <div className="iconDropDown">{icono}</div>
-          <div className="titleDropDown">{titulo}</div>
+    <>
+      {children ? (
+        <details className="containerDropDown">
+          <summary className="iconTitleArrowDropDown">
+            <div className="iconTitleDropDown">
+              <div className="iconDropDown">{icono}</div>
+              <div className="titleDropDown">{titulo}</div>
+            </div>
+            <IconChevronDown stroke={2.2} className="arrow-down-DropDown" />
+          </summary>
+          <div className="detailsDropDown">{children}</div>
+        </details>
+      ) : (
+        <div className="containerDropDown">
+          <Link to={NavigateTo} className="iconTitleArrowDropDown">
+            <div className="iconTitleDropDown">
+              <div className="iconDropDown">{icono}</div>
+              <div className="titleDropDown">{titulo}</div>
+            </div>
+          </Link>
         </div>
-        <IconChevronDown stroke={2.2} className="arrow-down-DropDown" />
-      </summary>
-      <div className="detailsDropDown">
-       {children}
-      </div>
-    </details>
+      )}
+    </>
   );
 };
 

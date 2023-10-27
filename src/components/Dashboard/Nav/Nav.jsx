@@ -5,7 +5,7 @@ import {
   IconUsers,
   IconBottle,
   IconLogout,
-  IconSquareRoundedPlus 
+  IconSquareRoundedPlus,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import Button from "./Button/Button";
@@ -22,19 +22,20 @@ const Nav = () => {
         <p className="nombreDashboard">{localStorage.getItem("usuario")}</p>
       </div>
       <section className="sectionNavMenu">
-        <DropDown icono={<IconUsers stroke={3} />} titulo="Usuario">
-          <Link to="/registro" className="">
-            <Button icono={<IconSquareRoundedPlus stroke={2.5} />} titulo="Registrar Usuario" />
-          </Link>
-        </DropDown>
-        <DropDown icono={<IconBottle stroke={3} />} titulo="Producto">
-          hola
-        </DropDown>
+        <DropDown icono={<IconSmartHome stroke={3} />} titulo="Inicio" />
+        <DropDown icono={<IconUsers stroke={3} />} titulo="Usuario" NavigateTo="/usuario" />
+        <DropDown icono={<IconBottle stroke={3} />} titulo="Producto" NavigateTo="/productos"/>
+
         <DropDown icono={<IconUsers stroke={3} />} titulo="Insumos">
           Insumos
         </DropDown>
         <DropDown icono={<IconUsers stroke={3} />} titulo="Mesas">
-          hola
+          <Link to="/registro" className="">
+            <Button
+              icono={<IconSquareRoundedPlus stroke={2.5} />}
+              titulo="Registrar Usuario"
+            />
+          </Link>
         </DropDown>
         <DropDown icono={<IconUsers stroke={3} />} titulo="Nota de Salida">
           hola
