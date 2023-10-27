@@ -8,6 +8,7 @@ import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
 import PaymentType from "./components/PaymentType/PaymentType";
 import TarjetaDeReporteDeInicio from "./components/TarjetaDeReporteDeInicio/TarjetaDeReporteDeInicio";
+import ManageProfile from "./components/ManageProfile/ManageProfile";
 import Money from "/Money.png";
 import CarritoDeCompras from "/CarritoDeCompras.png";
 import Timbre from "/Timbre.png";
@@ -41,6 +42,8 @@ function App() {
         </Route>
         <Route path="*" element={<div>ruta no encontrada</div>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
+        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
+        
         <Route
           path="/rutaDePrueva"
           element={
