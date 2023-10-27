@@ -1,0 +1,97 @@
+.contenedorGestorDePerfil {
+  display: flex;
+  
+  width: 100%;
+  max-width: 275px;
+  height: 100%;
+  min-height: 325px;
+
+  border-radius: 15px;
+  background: #fafafa;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  align-items: center;
+  /*   
+  justify-content: center;
+  */
+}
+.imgDeTrabajador {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.contenedorDeDetalle {
+  display: flex;
+  flex-direction: column;
+}
+.primerDetalle {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.primerParrafo {
+  color: #898484;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+
+  margin-left: 15px;
+}
+.iconoPantallaCompleta {
+  margin-right: 10px;
+}
+.segundoDetalle {
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 20px;
+}
+.segundoParrafo {
+  color: #898484;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+}
+.iconoCambiarPassword {
+  margin-right: 23px;
+}
+.tercerDetalle {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: row;
+}
+.tercerParrafo {
+  color: #898484;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+}
+.iconoEditarPerfil {
+  margin-right: 27px;
+}
+.lineaDeDetalle {
+  border: 1px solid #dfd0de;
+
+  margin-top: 10px;
+}
+.cuartoDetalle {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+.cuartoParrafo {
+  color: #898484;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+}
+.iconoClose {
+  margin-right: 25px;
+}

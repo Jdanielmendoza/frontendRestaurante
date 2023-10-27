@@ -11,6 +11,8 @@ import Usuario from "./Views/Usuario/Usuario";
 import PaymentType from "./components/PaymentType/PaymentType";
 import Productos from "./Views/Productos/Productos";
 
+import ManageProfile from "./components/ManageProfile/ManageProfile";
+
 function App() {
   return (
     <>
@@ -70,6 +72,8 @@ function App() {
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
+        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
+        
       </Routes>
     </>
   );
