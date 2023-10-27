@@ -1,11 +1,14 @@
 import "./App.css";
 import FormularioLogin from "./components/FormularioLogin/FormularioLogin";
 import CambiarPassword from "./components/cambiarPassword/cambiarPassword";
-import CrearUsuario from "./components/CrearUsuario";
 import RegistrarUsuario from "./components/RegistrarUsuario/RegistrarUsuario";
 import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
+
+import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
+import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
+import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
 
 function App() {
   return (
@@ -36,6 +39,11 @@ function App() {
           />
         </Route>
         <Route path="*" element={<div>ruta no encontrada</div>} />
+
+        <Route path="/categoria/registro" element={<FormularioRegistroCategoria/>} />
+        <Route path="/mesa/registro" element={<FormularioRegistroMesa/>} />
+
+        <Route path="/producto/registro" element={<FormularioRegistroProducto/>} />
       </Routes>
     </>
   );
