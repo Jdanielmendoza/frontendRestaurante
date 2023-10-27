@@ -9,7 +9,10 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
 import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
 import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
+import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/ListaProducto";
 
+
+import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
 function App() {
   return (
     <>
@@ -44,6 +47,10 @@ function App() {
         <Route path="/mesa/registro" element={<FormularioRegistroMesa/>} />
 
         <Route path="/producto/registro" element={<FormularioRegistroProducto/>} />
+
+{/* Acutal cambio */}
+        <Route path="/lista/producto" element={<ListaProducto/>} />
+        <Route path="/lista/header/producto" element={<HeaderProducto/>} />
       </Routes>
     </>
   );
