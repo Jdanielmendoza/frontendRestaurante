@@ -1,0 +1,48 @@
+
+.containerNav{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.perfilNav{
+    padding: 30px 15px 15px  ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.imagePerfil{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #6C5FBC;
+}
+.nombreDashboard{
+    color: #334;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+}
+.sectionNavMenu{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+
+.containerCerrarSesion{
+    display: flex;
+    gap: 10px;
+    padding: 5px 13px;
+    font-family: 'Rowdies', sans-serif;
+    color: #BA6B6B;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.containerCerrarSesion:hover{
+    text-decoration: underline;
+}
