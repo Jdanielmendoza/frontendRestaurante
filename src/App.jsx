@@ -13,6 +13,7 @@ import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/Lis
 
 
 import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
+import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
 function App() {
   return (
     <>
@@ -51,6 +52,8 @@ function App() {
 {/* Acutal cambio */}
         <Route path="/lista/producto" element={<ListaProducto/>} />
         <Route path="/lista/header/producto" element={<HeaderProducto/>} />
+
+        <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
       </Routes>
     </>
   );
