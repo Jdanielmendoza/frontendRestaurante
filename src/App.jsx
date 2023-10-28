@@ -1,17 +1,30 @@
 import "./App.css";
 import FormularioLogin from "./components/FormularioLogin/FormularioLogin";
 import CambiarPassword from "./components/cambiarPassword/cambiarPassword";
-import CrearUsuario from "./components/CrearUsuario";
 import RegistrarUsuario from "./components/RegistrarUsuario/RegistrarUsuario";
 import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
+
 import Inicio from "./Views/Inicio/Inicio";
 import Usuario from "./Views/Usuario/Usuario";
 import PaymentType from "./components/PaymentType/PaymentType";
 import Productos from "./Views/Productos/Productos";
 
 import ManageProfile from "./components/ManageProfile/ManageProfile";
+
+
+
+import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
+import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
+import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
+import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/ListaProducto";
+
+
+import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
+import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
+
+
 
 function App() {
   return (
@@ -71,6 +84,17 @@ function App() {
         </Route>
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
+
+        <Route path="/categoria/registro" element={<FormularioRegistroCategoria/>} />
+        <Route path="/mesa/registro" element={<FormularioRegistroMesa/>} />
+
+        <Route path="/producto/registro" element={<FormularioRegistroProducto/>} />
+
+{/* Acutal cambio */}
+        <Route path="/lista/producto" element={<ListaProducto/>} />
+        <Route path="/lista/header/producto" element={<HeaderProducto/>} />
+
+        <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
         
