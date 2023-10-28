@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=M+PLUS+Rounded+1c:wght@400;700&family=Rowdies&family=Titan+One&display=swap");
 
+
 .containerButton{
-    background-color: #6C5FBC;
+    background-color: var(--backgroundColorButton);
     width: 100%;
     max-width: fit-content;
     color: #fff;
@@ -9,10 +10,18 @@
     font-weight: 600;
     font-family: "M PLUS Rounded 1c", sans-serif;
     display: flex;
-    gap: 5px;
-    padding: 10px;
+    align-items: center;
+    gap: 4px;
+    padding: 5px;
+    margin-right: 15px;
+}
+.containerButton>.IconButtonNew{
+    width: 20px;
+    color: var(--colorIconButton);
 }
 
 .containerButton>p{
     margin-right: 10px;
+    font-size: 14px;
+    color: var(--colorTextButton);
 }

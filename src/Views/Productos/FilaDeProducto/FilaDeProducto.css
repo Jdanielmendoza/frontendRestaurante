@@ -1,0 +1,54 @@
+.containerRowProduct {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: white;
+  box-shadow: 4px 4px 5px #d0d6e5;
+  list-style: none;
+  padding: 5px 15px 5px 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+}
+
+.containerRowProduct:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px #c4c4c4;
+  border: none;
+}
+
+.imageRowProduct {
+  width: 95px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.containerRowProduct > p {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+  width: 150px;
+  text-wrap: nowrap;
+  overflow: hidden; /* Oculta el texto que excede el ancho del contenedor */
+  text-overflow: ellipsis; 
+  /* border: 1px solid red; */
+}
+.producto-row-precio{
+    width: 120px !important;
+}
+.producto-row-stock{
+    width: 100px !important;
+
+}
+
+.actionsRows{
+    display: flex;
+    gap: 13px;
+    margin-left: auto;
+    padding-right: 30px;
+}
+.actionsRows>.iconRowProduct{
+    color: #953CDA;
+}

@@ -52,10 +52,18 @@ function App() {
 
           <Route>
             <Route
-              path="/productos"
+              path="/producto"
               element={
                 <Dashboard>
                   <Productos />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/producto/registro"
+              element={
+                <Dashboard>
+                  <div>registrar productos</div>
                 </Dashboard>
               }
             />

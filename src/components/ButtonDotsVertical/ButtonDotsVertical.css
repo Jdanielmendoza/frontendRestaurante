@@ -1,0 +1,58 @@
+.containerDotsVerticalButton{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+.iconDotsVerticalButton:hover{
+    background-color: #aaf;
+}
+
+.iconDotsVerticalButton{
+    width: 30px;
+    height: 31px;
+    background-color: #fff;
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    padding: 3.5px;
+    cursor: pointer;
+}
+
+.optionsDownVerticalButton{
+    width: 200px ;
+    
+    overflow: hidden;
+    padding: 0 10px;
+    box-shadow: 0 4px 5px rgb(0,0,0,25%);
+    border-radius: 10px 0 10px 10px ;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    background-color: #fff;
+    transition: all .25s;
+}
+.optionsDownVerticalButton>.containerButton{
+    height: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: #fff;
+}
+.optionsDownVerticalButton>.containerButton>p:hover{
+    text-decoration: underline;
+    color:  #953CDA;
+}
+
+.optionsDownVerticalButton>.containerButton>.IconButtonNew{
+    color: #953CDA;
+}
+.optionsDownVerticalButton>.containerButton>p{
+    color: black;
+}
+.optionsDownVerticalButton-active{
+    padding: 10px;
+    transition: all .25s;
+}
+.optionsDownVerticalButton-active> .containerButton{
+    height: 23.5px;
+    padding: 5px;
+    margin: 5px 0;
+}

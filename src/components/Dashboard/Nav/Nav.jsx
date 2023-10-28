@@ -24,7 +24,7 @@ const Nav = () => {
       <section className="sectionNavMenu">
         <DropDown icono={<IconSmartHome stroke={3} />} titulo="Inicio" />
         <DropDown icono={<IconUsers stroke={3} />} titulo="Usuario" NavigateTo="/usuario" />
-        <DropDown icono={<IconBottle stroke={3} />} titulo="Producto" NavigateTo="/productos"/>
+        <DropDown icono={<IconBottle stroke={3} />} titulo="Producto" NavigateTo="/producto"/>
 
         <DropDown icono={<IconUsers stroke={3} />} titulo="Insumos">
           Insumos
