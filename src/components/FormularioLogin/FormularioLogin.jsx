@@ -57,7 +57,7 @@ const FormularioLogin = () => {
                   type="password"
                   className="inputPasswor"
                   id="inputPasswordId"
-                  placeholder="Password"
+                  placeholder="Password"/*Para que se vea adentro de la caja*/ 
                   onChange={(e)=>{setContraseña(e.target.value)}}
                   required
                 />

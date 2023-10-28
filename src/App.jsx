@@ -12,6 +12,8 @@ import PaymentType from "./components/PaymentType/PaymentType";
 import Productos from "./Views/Productos/Productos";
 
 import ManageProfile from "./components/ManageProfile/ManageProfile";
+import TarjetaDeProductoDePedido from "./components/TarjetaDeProductoDePedido/TarjetaDeProductoDePedido";
+import polloEnteroAlaBrasa from "/PolloEnteroALaBrasa.jpeg";
 
 
 
@@ -96,8 +98,19 @@ function App() {
 
         <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
-        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
-        
+        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
+        <Route
+          path="/rutaDeTarjetaDeProducto"
+          element={
+            <div>
+              <TarjetaDeProductoDePedido
+                imgDelProducto={polloEnteroAlaBrasa}
+                tituloDelProducto="Pollo Entero A La Brasa"
+                precioDelProducto="75.00"
+              />
+            </div>
+          }
+        />
       </Routes>
     </>
   );
