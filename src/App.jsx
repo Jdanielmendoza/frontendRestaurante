@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
 
+
 import Inicio from "./Views/Inicio/Inicio";
 import Usuario from "./Views/Usuario/Usuario";
 import PaymentType from "./components/PaymentType/PaymentType";
@@ -76,7 +77,7 @@ function App() {
               path="/producto/registro"
               element={
                 <Dashboard>
-                  <div>registrar productos</div>
+                  <FormularioRegistroProducto/>
                 </Dashboard>
               }
             />
