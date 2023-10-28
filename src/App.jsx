@@ -6,6 +6,15 @@ import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
 
+import Inicio from "./Views/Inicio/Inicio";
+import Usuario from "./Views/Usuario/Usuario";
+import PaymentType from "./components/PaymentType/PaymentType";
+import Productos from "./Views/Productos/Productos";
+
+import ManageProfile from "./components/ManageProfile/ManageProfile";
+
+
+
 import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
 import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
 import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
@@ -14,25 +23,56 @@ import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/Lis
 
 import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
+
+
+
 function App() {
   return (
     <>
-      <Routes >
+      <Routes>
         <Route path="/auth" element={<FormularioLogin />} />
         <Route
           element={
             <ProtectorDeRutas permisos={localStorage.getItem("token")} />
           }
         >
-          <Route path="/" element={<Dashboard />} />
           <Route
-            path="/registro"
+            path="/"
             element={
               <Dashboard>
-                <RegistrarUsuario />
+                <Inicio />
               </Dashboard>
             }
           />
+          <Route>
+            <Route
+              path="/usuario"
+              element={
+                <Dashboard>
+                  <Usuario />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/registro"
+              element={
+                <Dashboard>
+                  <RegistrarUsuario />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/productos"
+              element={
+                <Dashboard>
+                  <Productos />
+                </Dashboard>
+              }
+            />
+          </Route>
           <Route
             path="/cambiarContraseña"
             element={
@@ -42,6 +82,7 @@ function App() {
             }
           />
         </Route>
+
         <Route path="*" element={<div>ruta no encontrada</div>} />
 
         <Route path="/categoria/registro" element={<FormularioRegistroCategoria/>} />
@@ -54,6 +95,9 @@ function App() {
         <Route path="/lista/header/producto" element={<HeaderProducto/>} />
 
         <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
+        <Route path="/tipodepago/registro" element={<PaymentType />} />
+        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
+        
       </Routes>
     </>
   );

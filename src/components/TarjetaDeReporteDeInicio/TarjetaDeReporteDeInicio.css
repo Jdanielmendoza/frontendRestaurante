@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=M+PLUS+Rounded+1c:wght@400;700&family=Rowdies&family=Titan+One&display=swap");
+
+.contenedorDeTarjeta {
+  width: 100%;
+  min-width: 200px;
+  height: 100%;
+  min-height: 200px;
+  background-color: var(--fondoDeColorDeTarjeta);
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 25px;
+
+  box-shadow: 0 4px 4px rgb(0, 0, 0, 25%);
+}
+.contenedorDeDescripcion {
+  display: flex;
+  margin-left: 25px;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.contenedorDeTitulo {
+  display: flex;
+  flex-direction: row;
+}
+.tituloDeNumero {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+.tituloDeValorDeNumero {
+  margin-top: 5px;
+  margin-left: 18px;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.portada {
+}
+.descripcion {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+.detalle {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+.iconoPortada {
+  border-radius: 100px;
+  background: var(--fondoDeColorTarjetaImagen);
+  height: 95px;
+  width: 95px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}

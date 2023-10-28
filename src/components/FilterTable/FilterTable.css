@@ -1,0 +1,35 @@
+.containerTituloFiltro{ 
+    display: flex;
+    max-width: fit-content;
+    padding: 5px;
+    gap: 5px;
+    align-items: center;
+}
+
+.tituloFiltro{
+    font-size: 14px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.selectFilter{
+    font-size: 12px;
+    color: #953CDA;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 5px ;
+    border-radius: 5px;
+    border: 1px solid #898484;
+}
+
+
+.selectFilter>option{
+    font-size: 12px;
+    background-color:#fff;
+    color: black;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+
+}

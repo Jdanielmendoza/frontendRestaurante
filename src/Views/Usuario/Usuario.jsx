@@ -1,0 +1,9 @@
+import "./Usuario.css"
+
+const Usuario = () => {
+  return (
+    <div>Usuario</div>
+  )
+}
+
+export default Usuario
