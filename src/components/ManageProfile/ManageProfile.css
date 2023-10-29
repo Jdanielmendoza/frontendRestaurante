@@ -1,19 +1,25 @@
 .contenedorGestorDePerfil {
-  display: flex;
-  
+  position: absolute;
+  right: 0;
+  top: 60px;
   width: 100%;
   max-width: 275px;
+  min-width: 250px;
   height: 100%;
   min-height: 325px;
-
   border-radius: 15px;
   background: #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   flex-direction: column;
   align-items: center;
+  display: none;
+  z-index: 2000;
   /*   
   justify-content: center;
   */
+}
+.contenedorGestorDePerfil-active {
+  display: flex;
 }
 .imgDeTrabajador {
   display: flex;
@@ -27,8 +33,10 @@
   margin: 10px;
 }
 .contenedorDeDetalle {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 .primerDetalle {
   display: flex;

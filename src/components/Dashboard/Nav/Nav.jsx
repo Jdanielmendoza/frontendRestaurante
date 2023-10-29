@@ -29,14 +29,7 @@ const Nav = () => {
         <DropDown icono={<IconUsers stroke={3} />} titulo="Insumos">
           Insumos
         </DropDown>
-        <DropDown icono={<IconUsers stroke={3} />} titulo="Mesas">
-          <Link to="/registro" className="">
-            <Button
-              icono={<IconSquareRoundedPlus stroke={2.5} />}
-              titulo="Registrar Usuario"
-            />
-          </Link>
-        </DropDown>
+        <DropDown icono={<IconUsers stroke={3} />} titulo="Mesas" NavigateTo="/mesa" />
         <DropDown icono={<IconUsers stroke={3} />} titulo="Nota de Salida">
           hola
         </DropDown>
@@ -44,16 +37,6 @@ const Nav = () => {
           reporte
         </DropDown>
 
-        <div
-          className="containerCerrarSesion"
-          onClick={() => {
-            localStorage.removeItem("token");
-            window.location.href = "/";
-          }}
-        >
-          <IconLogout stroke={2.2} color="#BA6B6B" />
-          <p>Cerrar Sesion</p>
-        </div>
       </section>
     </nav>
   );

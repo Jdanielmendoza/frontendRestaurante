@@ -28,6 +28,8 @@ export const loginUser = async (nombre, contraseña) => {
         localStorage.setItem("token", response.data?.token);
         localStorage.setItem("usuario", response.data?.data?.nombre);
         localStorage.setItem("imagen", response.data?.data.imagen);
+        localStorage.setItem("cargo", response.data?.data.cargo);
+        localStorage.setItem("ci", response.data?.data.ci);
         window.location.href = "/";
       } catch (error) {
         console.log(error);
@@ -51,7 +53,7 @@ export const registerNewUser = async ({
   fechaDeNacimiento,
   contraseña,
   sexo,
-  id_rol
+  id_rol,
 }) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -65,7 +67,7 @@ export const registerNewUser = async ({
       fechaDeNacimiento,
       contraseña,
       sexo,
-      id_rol
+      id_rol,
     });
 
     const result = await toast.promise(sendUser, {
@@ -75,6 +77,211 @@ export const registerNewUser = async ({
     });
 
     console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const cambiarContraseña = async (
+  ci,
+  antiguaContraseña,
+  nuevaContraseña,
+  verificarContraseña
+) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/user/cambiarClave";
+    if (nuevaContraseña == verificarContraseña) {
+      const passwordPromise = axios.patch(url, {
+        ci,
+        antiguaContraseña,
+        nuevaContraseña,
+      });
+      const res = await toast.promise(passwordPromise, {
+        loading: "cargando...",
+        success: "se cambio la contraseña!",
+        error: "ocurrio un error al cambiar la contraseña!",
+      });
+      return res.data;
+    } else {
+      toast.error("nuevas contraseñas no coinciden!");
+    }
+  } catch (error) {
+    toast.error(error.response.data);
+  }
+};
+
+export const registerNewProduct = async ({
+  id,
+  nombre,
+  descripcion,
+  precio,
+  stock,
+  imagen,
+  id_categoria,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/producto";
+    const sendProduct = axios.post(url, {
+      id,
+      nombre,
+      descripcion,
+      precio,
+      stock,
+      imagen,
+      id_categoria,
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateProduct = async ({
+  id,
+  nombre,
+  descripcion,
+  precio,
+  stock,
+  imagen,
+  id_categoria,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/producto/" + id;
+    const sendProduct = axios.patch(url, {
+      nombre,
+      descripcion,
+      precio,
+      stock,
+      imagen,
+      id_categoria,
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar!",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerCategorias = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/categoria";
+    const categorias = await axios.get(url);
+    return categorias.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerProductos = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/producto";
+    const productos = await axios.get(url);
+    return productos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eliminarProducto = async (idProducto) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/producto" + "/" + idProducto;
+    const producto = axios.delete(url);
+    const res = await toast.promise(producto, {
+      loading: "cargando...",
+      success: "producto eliminado!",
+      error: "ocurrio un error al tratar de eliminar el producto!",
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerMesas = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/mesa";
+    const mesas = await axios.get(url);
+    return mesas.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const registrarNuevaMesa = async (id, nro, nroSillas) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/mesa";
+    const sendTable = axios.post(url, {
+      id,
+      nro,
+      nroSillas,
+    });
+    const result = await toast.promise(sendTable, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+export const updateTable = async (id,nro,nroSillas) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/mesa" ;
+    const sendProduct = axios.put(url, {
+      id,nro,nroSillas
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar!",
+    });
+    /* console.log(result); */
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eliminarMesa = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/mesa/" + id ;
+    const mesa = axios.delete(url);
+    const res = await toast.promise(mesa, {
+      loading: "cargando...",
+      success: "producto eliminado!",
+      error: "ocurrio un error al tratar de eliminar la mesa!",
+    });
+    return res;
   } catch (error) {
     console.log(error);
   }

@@ -1,0 +1,20 @@
+.containerMesas{
+    background-color: #F8F9FC;
+    width: calc(100%  );
+    border-radius: 10px;
+    height: calc(100vh - 65px);
+    padding:40px 20px 20px ;;
+}
+
+.containerHeaderMesa{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0 30px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerHeaderMesa>div{
+    display: flex;
+}

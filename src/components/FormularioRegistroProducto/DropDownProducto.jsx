@@ -1,26 +1,25 @@
-import Select from "react-select"
+import Select from "react-select";
 
-const DropDownProducto = ()=>{
+const DropDownProducto = ({
+  setCategoria,
+  arregloCategorias,
+  defualtValueSelected,
+}) => {
+  const categorias = arregloCategorias.map((categoria) => {
+    return { label: categoria.nombre, value: categoria.id };
+  });
 
-    const Supplier = [
-        {label:'Gaseosa',value: '' },
-        {label:'Sopa',value: 'ga'},
-        {label:'Segundo',value: 'so'},
-        {label:'Postre',value: 'se'},
-    ]
+  const handleSelectChange = (event) => {
+    setCategoria(event.value);
+  };
 
-    const handleSelectChange = (event)=>{
-        console.log(event);
-    }
+  return (
+    <div className="p-15 containerInputSelectedCateogiry">
+      <h6 className="defaultValueCategorySelected">{defualtValueSelected}</h6>
+      <Select options={categorias} onChange={handleSelectChange} required />
 
-    return(
-        <div className='p-15 '>
-            <Select
-                options = {Supplier}
-                onChange={handleSelectChange}
-            />
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default DropDownProducto;

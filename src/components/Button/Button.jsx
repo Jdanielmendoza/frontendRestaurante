@@ -8,9 +8,23 @@ const Button = ({
   navigateTo = "/",
   backgroundColorButton = "#6C5FBC",
   colorIconButton = "#fff",
-  colorTextButton = "#fff"
+  colorTextButton = "#fff",
+  OnClickFn,
 }) => {
-  return (
+  return OnClickFn ? (
+    <div
+      onClick={OnClickFn}
+      className="containerButton"
+      style={{ "--backgroundColorButton": backgroundColorButton }}
+    >
+      <Icono
+        stroke={2.5}
+        className="IconButtonNew"
+        style={{ "--colorIconButton": colorIconButton }}
+      />
+      <p style={{ "--colorTextButton": colorTextButton }}>{titulo}</p>
+    </div>
+  ) : (
     <Link
       to={navigateTo}
       className="containerButton"
@@ -21,7 +35,7 @@ const Button = ({
         className="IconButtonNew"
         style={{ "--colorIconButton": colorIconButton }}
       />
-      <p style={{ '--colorTextButton': colorTextButton  }} >{titulo}</p>
+      <p style={{ "--colorTextButton": colorTextButton }}>{titulo}</p>
     </Link>
   );
 };

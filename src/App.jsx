@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import ProtectorDeRutas from "./services/ProtectorDeRutas";
 import Dashboard from "./components/Dashboard/Dashboard";
 
-
 import Inicio from "./Views/Inicio/Inicio";
 import Usuario from "./Views/Usuario/Usuario";
 import PaymentType from "./components/PaymentType/PaymentType";
@@ -16,18 +15,13 @@ import ManageProfile from "./components/ManageProfile/ManageProfile";
 import TarjetaDeProductoDePedido from "./components/TarjetaDeProductoDePedido/TarjetaDeProductoDePedido";
 import polloEnteroAlaBrasa from "/PolloEnteroALaBrasa.jpeg";
 
-
-
-import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
+import FormularioRegistroCategoria from "./components/FormularioRegistroCategoria/FormularioRegistroCategoria";
 import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
 import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
 import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/ListaProducto";
-
-
-import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
+import Mesas from "./Views/Mesas/Mesas";
+import HeaderProducto from "./components/Productos/HeaderProducto/HeaderProducto";
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
-
-
 
 function App() {
   return (
@@ -64,6 +58,14 @@ function App() {
                 </Dashboard>
               }
             />
+            <Route
+              path="/cambiarContraseña"
+              element={
+                <Dashboard>
+                  <CambiarPassword />
+                </Dashboard>
+              }
+            />
           </Route>
 
           <Route>
@@ -79,33 +81,61 @@ function App() {
               path="/producto/registro"
               element={
                 <Dashboard>
-                  <FormularioRegistroProducto/>
+                  <FormularioRegistroProducto />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/producto/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroProducto />
                 </Dashboard>
               }
             />
           </Route>
-          <Route
-            path="/cambiarContraseña"
-            element={
-              <Dashboard>
-                <CambiarPassword />
-              </Dashboard>
-            }
-          />
+
+          <Route>
+            
+            <Route
+              path="/mesa"
+              element={
+                <Dashboard>
+                  <Mesas />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/mesa/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroMesa />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/mesa/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroMesa />
+                </Dashboard>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
 
-        <Route path="/categoria/registro" element={<FormularioRegistroCategoria/>} />
-        <Route path="/mesa/registro" element={<FormularioRegistroMesa/>} />
+        <Route
+          path="/categoria/registro"
+          element={<FormularioRegistroCategoria />}
+        />
 
-        <Route path="/producto/registro" element={<FormularioRegistroProducto/>} />
+        {/* Acutal cambio */}
+        <Route path="/lista/producto" element={<ListaProducto />} />
+        <Route path="/lista/header/producto" element={<HeaderProducto />} />
 
-{/* Acutal cambio */}
-        <Route path="/lista/producto" element={<ListaProducto/>} />
-        <Route path="/lista/header/producto" element={<HeaderProducto/>} />
-
-        <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
+        <Route path="/lista/header/Mesa" element={<HeaderMesa />} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
         <Route

@@ -1,14 +1,19 @@
 import "./Productos.css";
 import Button from "../../components/Button/Button";
 import FilterTable from "../../components/FilterTable/FilterTable";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SortTable from "../../components/SortTable/SortTable";
 import SearchTable from "../../components/SearchTable/SearchTable";
 import { IconSearch } from "@tabler/icons-react";
 import ButtonDotsVertical from "../../components/ButtonDotsVertical/ButtonDotsVertical";
 import FilaDeProducto from "./FilaDeProducto/FilaDeProducto";
+import {
+  obtenerCategorias,
+  obtenerProductos,
+} from "../../apiServices/apiServices.js";
+import { Toaster } from "react-hot-toast";
 
-const defaultsOption = [
+/* const defaultsOption = [
   {
     id: "1a",
     nombre: "daniel",
@@ -49,28 +54,28 @@ const defaultsOption = [
     estadoCivil: "viudo",
     rol: "administrador",
   },
-];
+]; */
 
 const Productos = () => {
-  const [usuarios, setUsuarios] = useState(defaultsOption);
+  const [categorias, setCategorias] = useState([]); 
+  const [producto, setProducto] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filtros, setFiltros] = useState({
-    sexo: "Todo",
-    estadoCivil: "Todo",
+    categoria: "Todo",
     // se agrega más filtros según sea necesario
   });
   //ORDENAMIENTO POR DEFECTO
   const [ordenamiento, setOrdenamiento] = useState({
-    clave: "nombre", // clave por defecto para ordenar
+    nombre: "nombre", // clave por defecto para ordenar
     direccion: "asc", // dirección por defecto (ascendente)
   });
 
-  const listaFiltrada = usuarios.filter((user) => {
+  const listaFiltrada = producto.filter((product) => {
     return Object.entries(filtros).every(([clave, valor]) => {
       if (valor === "Todo") {
         return true;
       } else {
-        return user[clave] === valor;
+        return product[clave] === valor;
       }
     });
   });
@@ -118,25 +123,42 @@ const Productos = () => {
     setSearchQuery(query);
   };
 
+  useEffect(() => {
+    const productos = async () => {
+      try {
+        const response = await obtenerProductos();
+        /*mapeamos el arreglo de objetos productos para extraer el valor de la propiedad nombrecategoria de cada objeto. Luego, utilizamos el constructor Set para obtener un conjunto de categorías únicas, ya que los conjuntos no permiten elementos duplicados. Finalmente, convertimos ese conjunto nuevamente en un arreglo utilizando el operador de propagación (...) para obtener un arreglo de categorías únicas ↓*/
+        const categoriasUnicas = [...new Set(response.map(producto => producto.nombrecategoria))];
+        setCategorias(categoriasUnicas); 
+        setProducto(response);
+        /* console.log(response); */
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    productos();
+  }, []);
+
   return (
     <div className="containerProductos">
       <header className="containerHeaderProducto">
         <div className="child1">
-        <Button titulo="Nuevo" navigateTo="/producto/registro" />
-        <FilterTable titulo="sexo" setFiltros={setFiltros} clave="sexo">
-          <option value="M">Masculino</option>
-          <option value="F">Femenino</option>
-        </FilterTable>
+          <Button titulo="Nuevo" navigateTo="/producto/registro" />
+          <FilterTable titulo="categoria" setFiltros={setFiltros} clave="nombrecategoria">
+            {categorias.map((categoria)=>{
+              return <option value={categoria}>{categoria}</option>
+            })}
+          </FilterTable>
 
-        <SortTable titulo="Ordenar Por" setOrdenamiento={setOrdenamiento}>
-          <option value="nombre">Nombre</option>
-          <option value="edad">Edad</option>
-          <option value="estadoCivil">estadoCivil</option>
-        </SortTable>
+          <SortTable titulo="Ordenar Por" setOrdenamiento={setOrdenamiento}>
+            <option value="nombre">Nombre</option>
+            <option value="precio">Precio</option>
+            <option value="stock">Stock</option>
+          </SortTable>
         </div>
 
         <div className="inputSearchFilterTable">
-          <IconSearch className="iconSearchFilterTable"/> 
+          <IconSearch className="iconSearchFilterTable" />
           <input
             type="text"
             placeholder="Buscar..."
@@ -145,11 +167,10 @@ const Productos = () => {
           />
         </div>
         <ButtonDotsVertical>
-          <Button titulo="nueva categoria"/> 
-          <Button  /> 
-          <Button  /> 
+          <Button titulo="nueva categoria" />
+          <Button />
+          <Button />
         </ButtonDotsVertical>
-        
       </header>
       <section className="containerListProducts">
         <header className="headerProductoTable">
@@ -162,11 +183,12 @@ const Productos = () => {
           <p>Acciones</p>
         </header>
         <ul className="listProductsQ">
-          {listaConBusqueda.map((user) => (
-            <FilaDeProducto  />
+          {listaConBusqueda.map((producto) => (
+            <FilaDeProducto key={producto.id} producto={producto} />
           ))}
         </ul>
       </section>
+      <Toaster />
     </div>
   );
 };

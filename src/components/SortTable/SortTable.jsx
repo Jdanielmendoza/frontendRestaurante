@@ -3,7 +3,7 @@ import "./SortTable.css"
 import { useState } from "react";
 
 const SortTable = ({ titulo = "Titulo", setOrdenamiento, children }) => {
-    const [isAsc, setIsAsc] = useState(true); 
+    const [isAsc, setIsAsc] = useState(false); 
 
     const handleOrderFilter = ()=>{
         setIsAsc(!isAsc); 

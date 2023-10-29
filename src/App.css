@@ -58,6 +58,9 @@
   text-wrap: nowrap;
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
+.inputSearchFilterTable>input:focus{
+  outline: none;
+}
 .inputSearchFilterTable>.iconSearchFilterTable{
   width: 20px;
   height: 20px;
