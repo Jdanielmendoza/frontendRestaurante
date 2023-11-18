@@ -25,7 +25,7 @@ import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/Lis
 
 import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
-
+import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
 
 
 function App() {
@@ -99,6 +99,7 @@ function App() {
         <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
+        <Route path="/rutaDeNotaDeVenta" element={<NotaDeVenta />} />
         <Route
           path="/rutaDeTarjetaDeProducto"
           element={
