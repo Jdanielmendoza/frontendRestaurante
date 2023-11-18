@@ -1,0 +1,12 @@
+#containerFormCategoria{
+    background-color: #F8F9FC;
+    padding:0 30px ;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+
+#containerFormCategoria>form{
+    box-shadow: 1px 4px 10px rgba(184, 147, 226, 0.705);
+    max-width: 800px;
+}

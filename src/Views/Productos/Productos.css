@@ -2,4 +2,67 @@
     width: 100%;
     height: 100%;
     background-color:#F8F9FC;
+    overflow-y:auto;
+    border-radius: 10px;
+    min-width: 900px;
+}
+
+.containerHeaderProducto{
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill, minmax(100px ,200px )); */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px ;
+    
+    padding: 20px 60px 20px 20px;
+    position: relative;
+
+}
+
+.containerHeaderProducto>.child1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.headerProductoTable{
+    color: #746f6f;
+    display: flex;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 25px;
+}
+.headerProductoTable>p{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+  width: 150px;
+}
+
+.headerProductoTable>p:first-child{
+    width: 95px;
+}
+.headerProductoTable>p:nth-child(3){
+    width: 120px;
+}
+.headerProductoTable>p:nth-child(4){
+    width: 100px;
+}
+.headerProductoTable>p:last-child{
+    width: 100px;
+    margin-left: auto;
+}
+
+.containerListProducts{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+@media (width < 1100px) {
+ 
 }

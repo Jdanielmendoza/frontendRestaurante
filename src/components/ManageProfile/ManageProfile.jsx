@@ -1,49 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ManageProfile.css";
-import iconoMaximizar from "/iconoMaximizar2.svg";
-import iconoLapiz from "/iconoLapiz.svg";
-import iconoTuerca from "/iconoEditarPerfil.svg";
-import iconoClose from "/iconoClose.svg";
 import logoRestaurante from "/logoRestaurante.jpeg";
+import Button from "../Button/Button";
+import {
+  IconArrowsMaximize,
+  IconPencil,
+  IconSettings,
+  IconLogout,
+  IconArrowsMinimize
+} from "@tabler/icons-react";
 const ManageProfile = () => {
+  const [isMax, setIsMax] = useState(document.fullscreenElement);
+  const element = document.documentElement;
+  const handleScreen = () => {
+    if (!document.fullscreenElement) {
+      element.requestFullscreen().catch((err) => {
+        console.log(
+          `Error al intentar entrar en modo de pantalla completa: ${err.message}`
+        );
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+    setIsMax(!document.fullscreenElement);
+  };
   return (
     <div className="contenedorGestorDePerfil">
-      <img className="imgDeTrabajador" src={logoRestaurante} alt="Imagen Del Trabajador"></img>
+      <img
+        className="imgDeTrabajador"
+        src={logoRestaurante}
+        alt="Imagen Del Trabajador"
+      ></img>
 
       <div className="contenedorDeDetalle">
-        <div className="primerDetalle">
-          <img
-            className="iconoPantallaCompleta"
-            src={iconoMaximizar}
-            alt="Icono De Maximixar"
-          ></img>
-          <p className="primerParrafo">Pantalla Completa</p>
-        </div>
-
-        <div className="segundoDetalle">
-          <img
-            className="iconoCambiarPassword"
-            src={iconoLapiz}
-            alt="Icono De Lapiz"
-          ></img>
-          <p className="segundoParrafo">Cambiar Contraseña</p>
-        </div>
-
-        <div className="tercerDetalle">
-          <img
-            className="iconoEditarPerfil"
-            src={iconoTuerca}
-            alt="Icono De Herramienta"
-          ></img>
-          <p className="tercerParrafo">Editar Perfil</p>
-        </div>
+        <Button
+          Icono={isMax?IconArrowsMinimize: IconArrowsMaximize}
+          titulo={isMax?"Minimizar Pantalla" :"Pantalla Completa"}
+          backgroundColorButton="#fff0"
+          colorIconButton="#5D52A3"
+          colorTextButton="#898484"
+          OnClickFn={handleScreen}
+        />
+        <Button
+          Icono={IconPencil}
+          titulo="Cambiar Contraseña"
+          backgroundColorButton="#fff0"
+          colorIconButton="#5D52A3"
+          colorTextButton="#898484"
+          navigateTo="/cambiarcontraseña"
+        />
+        <Button
+          Icono={IconSettings}
+          titulo="Editar Perfil"
+          backgroundColorButton="#fff0"
+          colorIconButton="#5D52A3"
+          colorTextButton="#898484"
+          navigateTo="/"
+        />
 
         <hr className="lineaDeDetalle"></hr>
 
-        <div className="cuartoDetalle">
-          <img className="iconoClose" src={iconoClose} alt="Icono Close"></img>
-          <p className="cuartoParrafo">Cerrar Sesión</p>
-        </div>
+        <Button
+          Icono={IconLogout}
+          titulo="Cerrar Sesión"
+          backgroundColorButton="#fff0"
+          colorIconButton="#BF8484"
+          colorTextButton="#BF8484"
+          OnClickFn={() => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("cargo");
+            localStorage.removeItem("imagen");
+            localStorage.removeItem("usuario");
+            window.location.href = "/";
+          }}
+        />
       </div>
     </div>
   );

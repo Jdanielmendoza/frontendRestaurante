@@ -1,0 +1,15 @@
+.arrowUpDownSort {
+  color: black;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #898484;
+  cursor: pointer;
+  
+}
+
+.arrowUpDownSort:active {
+  color: #222;
+  background-color: #eef;
+}

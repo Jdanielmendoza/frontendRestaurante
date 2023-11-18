@@ -11,6 +11,22 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    position: relative;
+}
+.iconXMenu{
+    color: #6C5FBC;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 1px 4px 5px #aaf;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+.iconXMenu:active{
+    box-shadow: 0 0 5px #aaf;
 }
 .imagePerfil{
     width: 120px;
@@ -45,4 +61,33 @@
 }
 .containerCerrarSesion:hover{
     text-decoration: underline;
+}
+
+
+@media (width < 800px){
+    .containerNav{
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+    .containerNav::after{
+        /* content: "";
+        top: 0;
+        left: 0;
+        position: fixed;
+        width:100%;
+        height: 100vh;
+        background-color: rgba(104, 50, 158, 0.313);
+        z-index: -10; */
+    }
+    .iconXMenu{
+        display: block;
+    }
+    .perfilNav{
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+    .imagePerfil{
+        width: 100px;
+        height: 100px;
+    }
 }
