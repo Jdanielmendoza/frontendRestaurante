@@ -1,0 +1,36 @@
+.containerTableCategoria{
+    width: 100%;
+    background-color: #F8F9FC;
+    border-radius: 10px 0 0 0;
+    height: calc(100vh - 65px);
+    padding: 30px 20px;
+    min-width: 500px;
+    overflow-y: auto ;
+}
+
+.headerTablaeCategoria{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerTablaeCategoria>div{
+    display: flex;
+}
+
+#headerTableCategory{
+    margin-bottom: 10px;
+}
+#headerTableCategory>p{
+    width: 100%;
+    max-width: 170px;
+}
+
+
+@media (width < 500px ){
+    .containerTableCategoria{
+        padding:30px 10px 10px 10px;
+    }
+    #containerListCategoria{
+        padding: 15px 2px;
+    }
+}

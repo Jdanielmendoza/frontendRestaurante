@@ -2,11 +2,14 @@
     display: flex;
     align-items: flex-start;
     height: 100%;
-    background-color: #fff;
+    background-color: #F8F9FC;
     padding: 0 120px;
 }
 .containerProductoRegistro>form{
-    background-color: #fff;
+    background-color: #f9f8fc;
+    box-shadow: 1px 4px 10px rgb(163, 146, 192);
+    padding-bottom: 40px;
+    margin-bottom: 20px;
 }
 #inputImageProductoContainer{
     display: flex;
@@ -44,6 +47,11 @@
 }
 @media (width<850px){
     .containerProductoRegistro{
-        padding: 0 30px;
+        align-items: flex-start !important;
+        padding:25px ;
+        overflow:hidden auto;
+    }
+    .containerProductoRegistro>form{
+        /* background-color: beige ; */
     }
 }

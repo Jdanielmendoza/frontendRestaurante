@@ -2,7 +2,7 @@ import "./Dashboard.css";
 import Nav from "./Nav/Nav";
 import logoRestaurante from "/logoRestaurante.jpeg";
 import ManageProfile from "../ManageProfile/ManageProfile";
-import { IconChevronDown } from "@tabler/icons-react";
+import { IconChevronDown, IconMenu, IconMenu2 } from "@tabler/icons-react";
 
 const Dashboard = ({ children }) => {
   
@@ -11,9 +11,14 @@ const Dashboard = ({ children }) => {
     document.querySelector(".contenedorGestorDePerfil").classList.toggle("contenedorGestorDePerfil-active")
   }
 
+  const handleClickShowMenu = ()=>{
+    document.querySelector(".containerMenuNavegacionDashboard").classList.toggle("containerMenuNavegacionDashboard-active");
+    //document.querySelector(".contenedorGestorDePerfil").classList.toggle("contenedorGestorDePerfil-active")
+  }
   return (
     <div className="containerDashboard">
       <header className="headerDashboard">
+        <IconMenu2 className="iconMenuHamburguer" onClick={()=>handleClickShowMenu()} />
         <h4 className="tituloHeaderDashboard">OSO RUEDA</h4>
         <section className="ContainericonoPerfilDashboardLogo">
           <p className="rolUserDashboard">{localStorage.getItem("cargo")}</p>

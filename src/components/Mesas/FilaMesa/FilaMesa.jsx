@@ -4,7 +4,7 @@ import iconoEditar from '/iconoEditar.svg'
 import iconoEliminar from '/iconoEliminar.svg'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2';
-
+import mesaImage from "/imagenMesa.png"
 
 const FilaMesa = ({mesa}) => {
    const navigate = useNavigate(); 
@@ -50,7 +50,7 @@ const FilaMesa = ({mesa}) => {
             <ul className='grid grid-cols-3 gap-10 '>
               <li className=" font-bold text-black text-center col-span-1 py-2  ">
                 <div className="flex justify-center items-center md:gap-5">
-                    <img src="/src/img/imagenMesa.png" className="w-11 h-11"/>
+                    <img src={mesaImage} className="w-11 h-11"/>
                     {mesa.nro}
                 </div>
                 </li>

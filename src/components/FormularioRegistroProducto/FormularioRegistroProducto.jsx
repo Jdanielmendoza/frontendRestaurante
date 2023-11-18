@@ -112,7 +112,7 @@ const FormularioRegistroProducto = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center containerProductoRegistro ">
+    <div className=" flex items-center justify-center containerProductoRegistro ">
       <form
         className="w-full  bg-gray-50 rounded-md p-5 "
         onSubmit={(e) => {
@@ -184,7 +184,7 @@ const FormularioRegistroProducto = () => {
               Descripcion
             </label>
             <textarea
-              className="border-purple-400 w-full border-2 rounded-md"
+              className="border-purple-400 p-1 w-full border-2 rounded-md"
               onChange={(e) => setDescripcion(e.target.value)}
               value={descripcion}
             />
@@ -201,7 +201,7 @@ const FormularioRegistroProducto = () => {
 
         <input
           type="submit"
-          className="text-white font-semibold py-3 w-full bg-custom-color rounded-md uppercase md:text-2xl mt-12 hover:bg-purple-600 cursor-pointer"
+          className="text-white font-semibold py-3 w-full bg-custom-color rounded-md uppercase md:text-2xl mt-7 hover:bg-purple-600 cursor-pointer"
           value={state ? "Guardar Cambios" : "Registrar"}
         />
       </form>

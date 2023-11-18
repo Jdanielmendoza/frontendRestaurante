@@ -1,12 +1,6 @@
 import "./FilterTable.css";
 
-const FilterTable = ({
-  titulo = "Titulo",
-  setFiltros,
-  clave,
-  children,
-}) => {
-
+const FilterTable = ({ titulo = "Titulo", setFiltros, clave, children }) => {
   return (
     <div className="containerTituloFiltro">
       <p className="tituloFiltro">{titulo} :</p>
@@ -14,21 +8,22 @@ const FilterTable = ({
         className="selectFilter"
         onChange={(e) => {
           const nuevaSeleccion = e.target.value;
-          setFiltros((prevFiltros) => ({
-            ...prevFiltros,
-            [clave]: nuevaSeleccion,
-          }));
+          setFiltros((prevFiltros) => {
+            return {
+              ...prevFiltros,
+              [clave]: nuevaSeleccion,
+            };
+          });
         }}
       >
         <option value="Todo">Todo</option>
         {children}
       </select>
- </div>
+    </div>
   );
 };
 
 export default FilterTable;
-
 
 /* import "./FilterTable.css";
 

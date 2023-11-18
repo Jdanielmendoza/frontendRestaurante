@@ -27,6 +27,13 @@
   background-color: rgb(255, 255, 255);
 }
 
+.iconMenuHamburguer{
+  margin: 0 5px 0 10px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: none;
+}
 .tituloHeaderDashboard {
   color: #000;
   font-family: "Stint Ultra Expanded", serif;
@@ -97,10 +104,18 @@
       "child  child  child ";
   }
   .containerMenuNavegacionDashboard {
-    display: none;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 3000;
+    min-height: 100vh;
+    transition: all .3s;
+  }
+  .containerMenuNavegacionDashboard-active{
+    width: 250px;
   }
   .tituloHeaderDashboard {
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
   }
@@ -111,7 +126,11 @@
     font-size: 14px;
     overflow: hidden;
   }
+  .iconMenuHamburguer{
+    display: block;
+  }
 }
+
 @media (width<960px) {
   .headerDashboard {
     display: flex;

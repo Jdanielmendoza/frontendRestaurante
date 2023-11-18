@@ -1,0 +1,18 @@
+#containerFilaCategoria{
+    padding: 15px;
+}
+
+#containerFilaCategoria>p{
+    width: 100% !important;
+    max-width: 170px    ;
+}
+#containerFilaCategoria>p:nth-child(2){
+    width: 100% !important;
+    max-width: 170px   !important ;
+}
+
+#actionsRowsCategoria{
+    width: 100% !important;
+    max-width: 160px    ;
+    padding-left: 10px;
+}

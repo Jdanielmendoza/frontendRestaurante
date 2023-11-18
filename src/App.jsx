@@ -22,6 +22,9 @@ import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/Lis
 import Mesas from "./Views/Mesas/Mesas";
 import HeaderProducto from "./components/Productos/HeaderProducto/HeaderProducto";
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
+import TablaCategorias from "./components/TablaCategorias/TablaCategorias";
+import Pedidos from "./Views/Pedidos/Pedidos";
+import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
 
 function App() {
   return (
@@ -51,7 +54,15 @@ function App() {
               }
             />
             <Route
-              path="/registro"
+              path="/usuario/registro"
+              element={
+                <Dashboard>
+                  <RegistrarUsuario />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/usuario/update"
               element={
                 <Dashboard>
                   <RegistrarUsuario />
@@ -63,6 +74,26 @@ function App() {
               element={
                 <Dashboard>
                   <CambiarPassword />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/pedido"
+              element={
+                <Dashboard>
+                  <Pedidos />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/pedido/nuevopedido"
+              element={
+                <Dashboard>
+                  <NuevoPedido />
                 </Dashboard>
               }
             />
@@ -96,7 +127,6 @@ function App() {
           </Route>
 
           <Route>
-            
             <Route
               path="/mesa"
               element={
@@ -122,14 +152,38 @@ function App() {
               }
             />
           </Route>
+
+          <Route>
+            <Route
+              path="/categoria"
+              element={
+                <Dashboard>
+                  <TablaCategorias />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/categoria/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroCategoria />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/categoria/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroCategoria />
+                </Dashboard>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
-
-        <Route
-          path="/categoria/registro"
-          element={<FormularioRegistroCategoria />}
-        />
 
         {/* Acutal cambio */}
         <Route path="/lista/producto" element={<ListaProducto />} />

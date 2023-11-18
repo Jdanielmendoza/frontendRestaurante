@@ -82,6 +82,59 @@ export const registerNewUser = async ({
   }
 };
 
+export const updateUsuario =async ({
+  imagen,
+  ci,
+  nombre,
+  telefono,
+  correo,
+  fechaDeNacimiento,
+  sexo,
+  id_rol,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/usuario";
+    const sendUser = axios.put(url,{
+      imagen,
+      ci,
+      nombre,
+      telefono,
+      correo,
+      fechaDeNacimiento,
+      sexo,
+      id_rol,
+    });
+
+    const result = await toast.promise(sendUser, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar!",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eliminarUser = async (carnet) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/usuario/" + carnet;
+    const usuario = axios.delete(url);
+    const res = await toast.promise(usuario, {
+      loading: "cargando...",
+      success: "usuario eliminado!",
+      error: "ocurrio un error al tratar de eliminar al usuario!",
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const cambiarContraseña = async (
   ci,
   antiguaContraseña,
@@ -284,5 +337,84 @@ export const eliminarMesa = async (id) => {
     return res;
   } catch (error) {
     console.log(error);
+  }
+};
+
+
+export const registrarCategoria = async (id, nombre, descripcion, id_categoria) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/categoria";
+    const sendCategory = axios.post(url, {
+      id,
+      nombre,
+      descripcion,
+      id_categoria
+    });
+    const result = await toast.promise(sendCategory, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+
+export const actulizarCategoria = async (id, nombre, descripcion, id_categoria) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/categoria";
+    const sendCategory = axios.put(url, {
+      id,
+      nombre,
+      descripcion,
+      id_categoria
+    });
+    const result = await toast.promise(sendCategory, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+export const eliminarCategoria = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/categoria/" + id ;
+    const mesa = axios.delete(url);
+    const res = await toast.promise(mesa, {
+      loading: "cargando...",
+      success: "categoria eliminada!",
+      error: "ocurrio un error al tratar de eliminar la categoria!",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const getUsers = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/usuario";
+    const usuarios = await axios.get(url);
+    return usuarios.data;
+  } catch (error) {
+    console.log(error);
+    return error ; 
   }
 };

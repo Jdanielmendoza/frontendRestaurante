@@ -25,7 +25,7 @@ const Button = ({
       <p style={{ "--colorTextButton": colorTextButton }}>{titulo}</p>
     </div>
   ) : (
-    <Link
+    <Link 
       to={navigateTo}
       className="containerButton"
       style={{ "--backgroundColorButton": backgroundColorButton }}

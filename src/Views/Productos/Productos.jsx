@@ -12,52 +12,10 @@ import {
   obtenerProductos,
 } from "../../apiServices/apiServices.js";
 import { Toaster } from "react-hot-toast";
-
-/* const defaultsOption = [
-  {
-    id: "1a",
-    nombre: "daniel",
-    edad: 18,
-    sexo: "M",
-    estadoCivil: "casado",
-    rol: "cajero",
-  },
-  {
-    id: "1b",
-    nombre: "juan",
-    edad: 19,
-    sexo: "M",
-    estadoCivil: "soltero",
-    rol: "cocinero",
-  },
-  {
-    id: "1c",
-    nombre: "pedro",
-    edad: 20,
-    sexo: "M",
-    estadoCivil: "casado",
-    rol: "administrador",
-  },
-  {
-    id: "1d",
-    nombre: "Ana",
-    edad: 21,
-    sexo: "F",
-    estadoCivil: "soltero",
-    rol: "administrador",
-  },
-  {
-    id: "1e",
-    nombre: "Maria",
-    edad: 20,
-    sexo: "F",
-    estadoCivil: "viudo",
-    rol: "administrador",
-  },
-]; */
+import { IconEye } from "@tabler/icons-react";
 
 const Productos = () => {
-  const [categorias, setCategorias] = useState([]); 
+  const [categorias, setCategorias] = useState([]);
   const [producto, setProducto] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filtros, setFiltros] = useState({
@@ -128,8 +86,14 @@ const Productos = () => {
       try {
         const response = await obtenerProductos();
         /*mapeamos el arreglo de objetos productos para extraer el valor de la propiedad nombrecategoria de cada objeto. Luego, utilizamos el constructor Set para obtener un conjunto de categorías únicas, ya que los conjuntos no permiten elementos duplicados. Finalmente, convertimos ese conjunto nuevamente en un arreglo utilizando el operador de propagación (...) para obtener un arreglo de categorías únicas ↓*/
-        const categoriasUnicas = [...new Set(response.map(producto => producto.nombrecategoria))];
-        setCategorias(categoriasUnicas); 
+        const categoriasUnicas = [
+          ...new Set(
+            response.map((producto) => {
+              return producto.nombrecategoria;
+            })
+          ),
+        ];
+        setCategorias(categoriasUnicas);
         setProducto(response);
         /* console.log(response); */
       } catch (error) {
@@ -144,9 +108,17 @@ const Productos = () => {
       <header className="containerHeaderProducto">
         <div className="child1">
           <Button titulo="Nuevo" navigateTo="/producto/registro" />
-          <FilterTable titulo="categoria" setFiltros={setFiltros} clave="nombrecategoria">
-            {categorias.map((categoria)=>{
-              return <option value={categoria}>{categoria}</option>
+          <FilterTable
+            titulo="categoria"
+            setFiltros={setFiltros}
+            clave="nombrecategoria"
+          >
+            {categorias.map((categoria, index) => {
+              return (
+                <option key={index} value={categoria}>
+                  {categoria}
+                </option>
+              );
             })}
           </FilterTable>
 
@@ -167,9 +139,12 @@ const Productos = () => {
           />
         </div>
         <ButtonDotsVertical>
-          <Button titulo="nueva categoria" />
-          <Button />
-          <Button />
+          <Button titulo="Nueva Categoria" navigateTo="/categoria/registro" />
+          <Button
+            titulo="Ver Categorias"
+            navigateTo="/categoria"
+            Icono={IconEye}
+          />
         </ButtonDotsVertical>
       </header>
       <section className="containerListProducts">
