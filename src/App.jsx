@@ -192,6 +192,7 @@ function App() {
         <Route path="/lista/header/Mesa" element={<HeaderMesa />} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
+        <Route path="/rutaDeNotaDeVenta" element={<NotaDeVenta />} />
         <Route
           path="/rutaDeTarjetaDeProducto"
           element={

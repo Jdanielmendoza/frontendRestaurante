@@ -1,0 +1,145 @@
+.contenedorDeNotaDeVenta {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+.primerParrafo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.primerTitulo {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 32px;
+  font-weight: 700;
+}
+.nroPedido {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+}
+.segundoParrafo {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.segundoParrafoPrimeraFila {
+}
+.segundoParrafoSegundaFila {
+
+}
+.tercerParrafoDeColumnas {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.primeraLinea {
+  background: #060606;
+  height: 3px;
+  border-style: dashed;
+  border-width: 2px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cuartoParrafoDeDatos {
+
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.segundaLinea {
+  background: #060606;
+  height: 3px;
+  border-style: dashed;
+  border-width: 2px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.terceraLinea {
+  background: #060606;
+  height: 3px;
+  border-style: dashed;
+  border-width: 2px;
+  margin-bottom: 10px;
+}
+.quintoParrafoDeTotales {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: self-end;
+  row-gap: 10px;
+  /*   align-items: self-end;
+TENEMOS QUE OCUPAR EL GAP
+gap: 5px
+
+*/
+
+}
+.quintoParrafoPrimeraLinea {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+.quintoParrafoSegundaLinea {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+.quintoParrafoTerceraLinea {
+  display: flex;
+  flex-direction: row;
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 32px;
+  font-weight: 700;
+  column-gap: 30px;
+}
+.sextoParrafo {
+  display: flex;
+  flex-direction: column;
+}
+.sextoParrafoPrimeraLinea {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 15px;
+  font-weight: 700;
+}
+.sextoParrafoSegundaLinea {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 15px;
+  font-weight: 700;
+}
