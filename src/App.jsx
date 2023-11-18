@@ -25,6 +25,8 @@ import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
 import TablaCategorias from "./components/TablaCategorias/TablaCategorias";
 import Pedidos from "./Views/Pedidos/Pedidos";
 import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
+import CarritoPedido from "./Views/Pedidos/NuevoPedido/CarritoPedido/CarritoPedido";
+import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
 
 function App() {
   return (
@@ -193,6 +195,9 @@ function App() {
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
         <Route path="/rutaDeNotaDeVenta" element={<NotaDeVenta />} />
+        <Route path="/CarritoPedido" element={<CarritoPedido />} />
+        
+
         <Route
           path="/rutaDeTarjetaDeProducto"
           element={
