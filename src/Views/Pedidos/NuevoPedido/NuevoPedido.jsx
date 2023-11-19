@@ -3,6 +3,7 @@ import FilterTable from "../../../components/FilterTable/FilterTable";
 import "./NuevoPedido.css";
 import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import { obtenerProductos } from "../../../apiServices/apiServices.js";
+import TarjetaDeProductoDePedido from "../../../components/TarjetaDeProductoDePedido/TarjetaDeProductoDePedido.jsx";
 
 const NuevoPedido = () => {
   const [categorias, setCategorias] = useState([]);
@@ -94,10 +95,11 @@ const NuevoPedido = () => {
             </FilterTable>
           </div>
 
-          <ul>{/* lista de productos  */}
-            {/* {listaConBusqueda.map((producto) => (
-              <li>{JSON.stringify(producto)}</li>
-            ))} */}
+          <ul className="containerListNewProduct">
+            {/* lista de productos  */}
+            {listaConBusqueda.map((producto) => (
+              <TarjetaDeProductoDePedido key={producto.id}  producto={producto} />
+            ))}
           </ul>
         </header>
       </article>
