@@ -1,0 +1,10 @@
+.containerRegisterMesa{
+    background-color:#F8F9FC;
+    padding: 70px 20px 20px 20px;
+    display: flex;
+    align-items: flex-start !important;
+}
+.containerRegisterMesa>form{
+    max-width: 600px;
+    box-shadow: 1px 3px 5px rgb(150, 161, 200);
+}

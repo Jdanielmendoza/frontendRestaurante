@@ -1,13 +1,15 @@
 .containerTituloFiltro{ 
     display: flex;
-    max-width: fit-content;
+    min-width: fit-content;
+    max-width: min-content;
     padding: 5px;
     gap: 5px;
     align-items: center;
 }
 
 .tituloFiltro{
-    font-size: 14px;
+    font-size: 12px;
+    text-wrap: nowrap;
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
     text-transform: capitalize;
@@ -22,11 +24,12 @@
     padding: 5px ;
     border-radius: 5px;
     border: 1px solid #898484;
+    
 }
 
 
 .selectFilter>option{
-    font-size: 12px;
+    font-size: 13px;
     background-color:#fff;
     color: black;
     font-family: "M PLUS Rounded 1c", sans-serif;

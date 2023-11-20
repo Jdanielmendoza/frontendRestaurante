@@ -12,23 +12,23 @@ import PaymentType from "./components/PaymentType/PaymentType";
 import Productos from "./Views/Productos/Productos";
 
 import ManageProfile from "./components/ManageProfile/ManageProfile";
+import TarjetaDeProductoDePedido from "./components/TarjetaDeProductoDePedido/TarjetaDeProductoDePedido";
+import polloEnteroAlaBrasa from "/PolloEnteroALaBrasa.jpeg";
 
-
-
-import FormularioRegistroCategoria from './components/FormularioRegistroCategoria/FormularioRegistroCategoria';
+import FormularioRegistroCategoria from "./components/FormularioRegistroCategoria/FormularioRegistroCategoria";
 import FormularioRegistroMesa from "./components/FormularioRegistroMesa/FormularioRegistroMesa";
 import FormularioRegistroProducto from "./components/FormularioRegistroProducto/FormularioRegistroProducto";
 import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/ListaProducto";
-
-
-import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
+import Mesas from "./Views/Mesas/Mesas";
+import HeaderProducto from "./components/Productos/HeaderProducto/HeaderProducto";
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
 import HeaderPedido from "./components/Pedido/HeaderPedido/HeaderPedido";
 import FormaPago from "./components/Pagos/FormaPago";
 import GestionarPago from "./components/Pagos/GestionarPago";
 import HeaderGestionarPago from "./components/Pagos/HeaderGestionarPago";
-
-
+import TablaCategorias from "./components/TablaCategorias/TablaCategorias";
+import Pedidos from "./Views/Pedidos/Pedidos";
+import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
 
 function App() {
   return (
@@ -58,10 +58,26 @@ function App() {
               }
             />
             <Route
-              path="/registro"
+              path="/usuario/registro"
               element={
                 <Dashboard>
                   <RegistrarUsuario />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/usuario/update"
+              element={
+                <Dashboard>
+                  <RegistrarUsuario />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/cambiarContraseña"
+              element={
+                <Dashboard>
+                  <CambiarPassword />
                 </Dashboard>
               }
             />
@@ -69,36 +85,115 @@ function App() {
 
           <Route>
             <Route
-              path="/productos"
+              path="/pedido"
+              element={
+                <Dashboard>
+                  <Pedidos />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/pedido/nuevopedido"
+              element={
+                <Dashboard>
+                  <NuevoPedido />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/producto"
               element={
                 <Dashboard>
                   <Productos />
                 </Dashboard>
               }
             />
+            <Route
+              path="/producto/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroProducto />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/producto/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroProducto />
+                </Dashboard>
+              }
+            />
           </Route>
-          <Route
-            path="/cambiarContraseña"
-            element={
-              <Dashboard>
-                <CambiarPassword />
-              </Dashboard>
-            }
-          />
+
+          <Route>
+            <Route
+              path="/mesa"
+              element={
+                <Dashboard>
+                  <Mesas />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/mesa/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroMesa />
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/mesa/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroMesa />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/categoria"
+              element={
+                <Dashboard>
+                  <TablaCategorias />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/categoria/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroCategoria />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/categoria/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroCategoria />
+                </Dashboard>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
 
-        <Route path="/categoria/registro" element={<FormularioRegistroCategoria/>} />
-        <Route path="/mesa/registro" element={<FormularioRegistroMesa/>} />
+        {/* Acutal cambio */}
+        <Route path="/lista/producto" element={<ListaProducto />} />
+        <Route path="/lista/header/producto" element={<HeaderProducto />} />
 
-        <Route path="/producto/registro" element={<FormularioRegistroProducto/>} />
-
-{/* Acutal cambio */}
-        <Route path="/lista/producto" element={<ListaProducto/>} />
-        <Route path="/lista/header/producto" element={<HeaderProducto/>} />
-
-        <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
+        <Route path="/lista/header/Mesa" element={<HeaderMesa />} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
 

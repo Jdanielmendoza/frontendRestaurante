@@ -1,0 +1,57 @@
+.containerProductoRegistro{
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    background-color: #F8F9FC;
+    padding: 0 120px;
+}
+.containerProductoRegistro>form{
+    background-color: #f9f8fc;
+    box-shadow: 1px 4px 10px rgb(163, 146, 192);
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+#inputImageProductoContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center ;
+
+}
+#inputImageSelectedFile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.imageSelectedFormProduct{
+    height: 220px;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+
+.containerInputSelectedCateogiry{
+    position: relative;
+}
+.containerInputSelectedCateogiry>.defaultValueCategorySelected{
+    color: #888;
+    position: absolute;
+    top: -25px;
+}
+
+@media (width<1000px){
+    .containerProductoRegistro{
+        padding: 0 60px;
+    }
+}
+@media (width<850px){
+    .containerProductoRegistro{
+        align-items: flex-start !important;
+        padding:25px ;
+        overflow:hidden auto;
+    }
+    .containerProductoRegistro>form{
+        /* background-color: beige ; */
+    }
+}

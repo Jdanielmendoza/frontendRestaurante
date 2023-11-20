@@ -1,0 +1,55 @@
+.containerPedidos{
+    background-color: #F8F9FC;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 0 0 0;
+    min-width: 870px;
+    padding: 10px;
+    position: relative;
+}
+
+.headerPedidoTable{
+    color: #746f6f;
+    display: flex;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+.headerPedidoTable>p{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.headerPedidoTable>p:first-child{
+    
+    width: 150px;
+}
+.headerPedidoTable>p:nth-child(2){
+    min-width: 95px;
+    
+}
+.headerPedidoTable>p:nth-child(3){
+    width: 95px;
+    
+}
+.headerPedidoTable>p:nth-child(4){
+    width: 110px;
+    
+}
+.headerPedidoTable>p:nth-child(5){
+    width: 100px;
+    
+}
+.headerPedidoTable>p:nth-child(6){
+    width: 90px;
+}
+
+.headerPedidoTable>p:last-child{
+    width: 100px;
+    margin-left: auto;
+    
+}

@@ -1,0 +1,109 @@
+.contenedorDeTarjetaDeProductoDePedidos {
+  border-radius: 10px;
+  border: 1px solid rgba(160, 115, 255, 0.5);
+  background-color: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(112, 112, 112, 0.25);
+  width: 100%;
+  max-width: 180px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.portadaDelProducto {
+  display: flex;
+  flex-direction: column;
+}
+.imgDelProducto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 100%;
+  max-height: 95px;
+}
+.tituloDelProducto {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 700;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;/*para que se ponga a la izquierda*/
+}
+.contenedorDelCuerpoDeLaTarjeta {
+  display: flex;
+  flex-direction: column;
+}
+.contenedorDeCantidadYPrecioDelProducto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.precioDelProducto {
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 700;
+}
+.grupoDeButtonDeCantidadDeProducto {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+.cantidadDelProducto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 10px;
+  line-height: normal;
+  font-style: normal;
+  font-weight: 700;
+  width: 22px;
+  height: 24px;
+  background-color: #5a5878;
+  /*despues ver estos puntos*/
+  border-radius: 7px;
+  border: 1px solid #a073ff;
+  background: #5a5878;
+}
+.inputIncrementAndDecrement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  border: 1px solid #a073ff;
+  width: 22px;
+  height: 24px;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  padding-bottom: 3px;
+  color: #a073ff;
+}
+#inputAgregarProductoDeComida {
+  background-color: #a073ff;
+  border-radius: 10px;
+  color: #fff;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 12px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  padding: 5px;
+}

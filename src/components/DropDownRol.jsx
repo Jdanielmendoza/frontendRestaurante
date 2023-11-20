@@ -22,6 +22,7 @@ const DropDown = ()=>{
             <Select
                 options = {Supplier}
                 onChange={handleSelectChange}
+                required
             />
         </div>
     )

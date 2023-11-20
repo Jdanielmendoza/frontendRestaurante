@@ -1,12 +1,20 @@
 .containerFormRegistro{
     background-color: #fff;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: auto ;
     height: 100%;
-    padding: 30px;
+    padding: 50px 30px 30px 30px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
+}
+
+.iconTrashDeleteUser{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
 }
 
 .formRegistro{
@@ -34,11 +42,29 @@
     border-radius: 10px;
 }
 
-.itemRegister{
-    margin-top: 20px;
+.container-image{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #FCF2FF;
-    padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+.container-image>img{
+    width: 50%;
+    min-width: 100px;
+    max-width: 130px;
+    min-height: 100px;
+    max-height: 130px;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 1px 4px 10px rgb(86, 85, 88,20%)
+}
+.itemRegister{
+    text-wrap: wrap;
+    font-size: 12px;
+    width: 100%;
 }
 
 .selectOption{
@@ -79,9 +105,9 @@
 
 
 
-
 @media (width < 430px){
     .containerFormRegistro{
+        padding-top: 45px !important;
         padding: 10px;
     }
 }

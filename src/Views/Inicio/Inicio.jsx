@@ -7,13 +7,6 @@ import { useEffect } from "react";
 
 const Inicio = () => {
 
-  useEffect(()=>{
-    console.log("inicio montado");
-
-    return(()=>{
-      console.log("desmontado inicio")
-    });
-  },[])
 
   return (
     <div className="containerInicio" >
