@@ -23,6 +23,10 @@ import ListaProducto from "./components/Productos/TablaProducto/FilaProducto/Lis
 
 import HeaderProducto from './components/Productos/HeaderProducto/HeaderProducto'
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
+import HeaderPedido from "./components/Pedido/HeaderPedido/HeaderPedido";
+import FormaPago from "./components/Pagos/FormaPago";
+import GestionarPago from "./components/Pagos/GestionarPago";
+import HeaderGestionarPago from "./components/Pagos/HeaderGestionarPago";
 
 
 
@@ -97,7 +101,22 @@ function App() {
         <Route path="/lista/header/Mesa" element={<HeaderMesa/>} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
-        
+
+        <Route path="/header/Mesa" element={<HeaderMesa/>} />
+
+        <Route path="/header/Mesa/registro" element={<FormularioRegistroMesa/>} />
+
+        <Route path="/header/pedido" element={<HeaderPedido/>} />
+
+
+
+        <Route path="/formapago" element={<FormaPago/>} />
+        <Route path="/gestionarpago" element={<GestionarPago/>}/>
+        <Route path="/header/gestionarpago" element={<HeaderGestionarPago/>}/>
+
+
+
+
       </Routes>
     </>
   );
