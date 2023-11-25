@@ -549,3 +549,54 @@ export const actulizarPedido = async (
     toast.error(error.response.data);
   }
 };
+
+
+//------Pagos ---------------------
+
+// export const obtenerPagos = async () => {
+//   try {
+//     const baseUrl = import.meta.env.VITE_BASE_URL;
+//     const url = baseUrl + "/tipodepago";
+//     const pagos = await axios.get(url);
+//     return pagos.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+
+export const registrarPago = async ({
+  id,
+  nombre,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago";
+    const sendProduct = axios.post(url, {
+      id,
+      nombre,
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const obtenerPago = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago";
+    const categorias = await axios.get(url);
+    return categorias.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
