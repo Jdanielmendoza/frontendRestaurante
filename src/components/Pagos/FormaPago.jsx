@@ -1,5 +1,4 @@
 import iconoImprimir from '/iconoImprimir.svg'
-
 import FormularioFormaPago from './FormularioFormaPago'
 
 const FormaPago = () => {

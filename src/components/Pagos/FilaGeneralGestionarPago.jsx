@@ -1,6 +1,6 @@
-import FilaGestionarPago from "./FilaGestionarPago"
+import FilaGestionarPago from "./FilaPago"
 
-const HeaderGestionarPago = () => {
+const FilaGeneralGestionarPago = () => {
     return (
         <div>
             <section className='bg-white w-full px-6 rounded-lg'>
@@ -19,4 +19,4 @@ const HeaderGestionarPago = () => {
     )
 }
 
-export default HeaderGestionarPago
+export default FilaGeneralGestionarPago

@@ -23,9 +23,9 @@ import Mesas from "./Views/Mesas/Mesas";
 import HeaderProducto from "./components/Productos/HeaderProducto/HeaderProducto";
 import HeaderMesa from "./components/Mesas/HeaderMesa/HeaderMesa";
 import HeaderPedido from "./components/Pedido/HeaderPedido/HeaderPedido";
-import FormaPago from "./components/Pagos/FormaPago";
+// import FormaPago from "./components/Pagos/FormaPago";
 import GestionarPago from "./components/Pagos/GestionarPago";
-import HeaderGestionarPago from "./components/Pagos/HeaderGestionarPago";
+import FilaGeneralGestionarPago from "./components/Pagos/FilaGeneralGestionarPago";
 import TablaCategorias from "./components/TablaCategorias/TablaCategorias";
 import Pedidos from "./Views/Pedidos/Pedidos";
 import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
@@ -205,9 +205,10 @@ function App() {
 
 
 
-        <Route path="/formapago" element={<FormaPago/>} />
-        <Route path="/gestionarpago" element={<GestionarPago/>}/>
-        <Route path="/header/gestionarpago" element={<HeaderGestionarPago/>}/>
+        {/* <Route path="/pagos/nuevo" element={<FormaPago/>} /> */}
+        <Route path="/pagos/nuevo" element={<GestionarPago/>}/>
+        <Route path="/pagos" element={<FilaGeneralGestionarPago/>}/>
+
 
 
 
