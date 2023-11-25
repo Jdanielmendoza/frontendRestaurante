@@ -29,6 +29,9 @@ import FilaGeneralGestionarPago from "./components/Pagos/FilaGeneralGestionarPag
 import TablaCategorias from "./components/TablaCategorias/TablaCategorias";
 import Pedidos from "./Views/Pedidos/Pedidos";
 import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
+import CarritoPedido from "./Views/Pedidos/NuevoPedido/CarritoPedido/CarritoPedido";
+import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
+import ContextPedido from "./Views/Pedidos/NuevoPedido/ContextPedido";
 
 function App() {
   return (
@@ -97,7 +100,9 @@ function App() {
               path="/pedido/nuevopedido"
               element={
                 <Dashboard>
-                  <NuevoPedido />
+                  <ContextPedido>
+                    <NuevoPedido />
+                  </ContextPedido>
                 </Dashboard>
               }
             />

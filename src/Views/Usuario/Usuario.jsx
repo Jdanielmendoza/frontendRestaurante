@@ -97,14 +97,14 @@ const Usuario = () => {
       try {
         const response = await getUsers();
         setUsuarios(response)
+        setArregloDeRoles(obtenerArregloDeRolesUnicos(response)); 
+        setArregloDeSexos(obtenerArregloDeSexosUnicos(response)); 
       } catch (error) {
         console.log(error);        
       }
     }
 
     obtenerUsuarios(); 
-    setArregloDeRoles(obtenerArregloDeRolesUnicos(usuarios)); 
-    setArregloDeSexos(obtenerArregloDeSexosUnicos(usuarios)); 
   },[])
 
   return (

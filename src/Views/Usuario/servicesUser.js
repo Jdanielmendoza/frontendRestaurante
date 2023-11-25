@@ -18,6 +18,7 @@ export const obtenerArregloDeSexosUnicos = (usuarios) => {
     ];
   };
   
+
 export const defaultUser = [{
     imagen:"https://www.libertyspecialtymarkets.com/_r/193x193/static/2020-07/profile-default.jpg?t=1596032829",
     nombre:"Joaquin Chumacero",

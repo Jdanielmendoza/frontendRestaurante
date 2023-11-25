@@ -49,11 +49,11 @@
 #containerRowUser>p:nth-child(6){
     
     width: 150px !important ;
-    min-width: 150px !important;
+    min-width: 140px !important;
 }
 
 #iconRowEditUser{
-    width: 50px ;
+    width: 40px ;
 }
 #iconRowEditUser:hover{
     color: rgb(43, 65, 228);
@@ -66,4 +66,11 @@
 }
 .logoWhatsApp:hover{
     filter: drop-shadow(1px 1px 1px rgb(38, 247, 69));
+}
+.logoWhatsAppC{
+    min-width: 25px;
+}
+
+.cActionRowa{
+    display: flex;
 }

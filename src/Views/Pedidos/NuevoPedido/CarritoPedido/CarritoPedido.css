@@ -1,0 +1,206 @@
+.ContenedorCarritoPedido {
+  padding: 20px;
+  padding-top: 30px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: #edeeff;
+  /*   box-shadow: -4px 0px 4px 0px rgba(98, 91, 91, 0.25); */
+}
+.TituloDePedido {
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 30px;
+}
+.ContedorDeProductos {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.LiDeContenidoDeCantidadNombreYPrecio {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.ParrafoCantidadDePlatillos {
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ParrafoPlatillos {
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ParrafoPrecioDePlatillo {
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  /*margin-left: auto;
+  ocupa hasta donde de*/
+  margin-left: auto;
+}
+.PrimeraLinea {
+  background-color: #c7bebe !important;
+  padding: 0.5px;
+  margin: 15px 0 15px 0;
+}
+.ContenedorDeDescuento {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.ParrafoDeTituloDeDescuento {
+  margin-right: auto;
+}
+.ContenerdorDeInputDeDescuento {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #585a6d;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  width: 95px;
+}
+.InputDeDescuento {
+  background-color: transparent;
+  width: 100%;
+  margin-right: auto;
+  outline: none;
+}
+
+.ContenedorDeTotalAPagar {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ParrafoDelPrecioTotal {
+}
+.ParrafoDeLaCantidadTotal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  margin-left: auto;
+}
+.SegundaLinea {
+  background-color: #c7bebe !important;
+  padding: 0.4px;
+  margin: 27px 0 27px 0;
+}
+.DivNroDeMesas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+.ParrafoDeNroDeMesas {
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+}
+.OpcionesEngrupo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  margin-left: auto;
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid #d5d5d5;
+  background-color: #ffff;
+  padding: 5px 20px 5px 20px;
+}
+.ContenerdorDeNumerosDeMesa {
+  outline: none;
+}
+.ContenedorDeDetalleDePedido {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.ParrafoDeDetalleDePedido {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #585a6d;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 5px;
+}
+.TextoDeArea {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  font-family: Rounded Mplus 1c Bold;
+  resize: none;
+}
+.ContenerdorDeInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ContenerdorDeInput > .InputEnviarACocina {
+  border-radius: 10px;
+  margin: 20px 0 20px 0;
+  background-color: #2b1a46;
+  color: #fff;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  cursor: pointer;
+}
+.UltimoInput {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: #d96565;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+.InputCancelarPedido{
+  cursor: pointer;
+}
