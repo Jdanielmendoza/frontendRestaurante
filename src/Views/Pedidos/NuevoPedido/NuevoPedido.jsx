@@ -4,8 +4,13 @@ import "./NuevoPedido.css";
 import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import { obtenerProductos } from "../../../apiServices/apiServices.js";
 import TarjetaDeProductoDePedido from "../../../components/TarjetaDeProductoDePedido/TarjetaDeProductoDePedido.jsx";
+import CarritoPedido from "./CarritoPedido/CarritoPedido.jsx";
+import useCarrito from "./useCarrito.jsx";
+import CarritoVacio from "../../../components/CarritoVacio/CarritoVacio.jsx";
+import { Toaster } from "react-hot-toast";
 
 const NuevoPedido = () => {
+  const {carrito, actualizarNroPedido} = useCarrito();   
   const [categorias, setCategorias] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [producto, setProducto] = useState([]);
@@ -63,6 +68,7 @@ const NuevoPedido = () => {
         console.log(error);
       }
     };
+    actualizarNroPedido() ;
     productos();
   }, []);
 
@@ -98,7 +104,10 @@ const NuevoPedido = () => {
           <ul className="containerListNewProduct">
             {/* lista de productos  */}
             {listaConBusqueda.map((producto) => (
-              <TarjetaDeProductoDePedido key={producto.id}  producto={producto} />
+              <TarjetaDeProductoDePedido
+                key={producto.id}
+                producto={producto}
+              />
             ))}
           </ul>
         </header>
@@ -109,9 +118,10 @@ const NuevoPedido = () => {
         </label>
         <input type="checkbox" id="checkCart" />
         <section className="containerCartDetails">
-          <p>detalles del pedido</p>
+          {carrito?.arreglo_detalle_pedido.length ===0   ?<CarritoVacio/> :<CarritoPedido/>}
         </section>
       </article>
+      <Toaster/>
     </section>
   );
 };

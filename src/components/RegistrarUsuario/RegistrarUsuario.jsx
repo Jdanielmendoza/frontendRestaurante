@@ -130,7 +130,7 @@ const RegistrarUsuario = () => {
     }
     setTimeout(() => {
       navigate(-1);
-    }, 1000);
+    }, 1200);
   };
 
   useEffect(() => {

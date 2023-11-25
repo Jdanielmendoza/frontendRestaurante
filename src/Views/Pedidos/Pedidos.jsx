@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import SortTable from "../../components/SortTable/SortTable";
 import "./Pedidos.css";
@@ -7,9 +7,10 @@ import { IconEye, IconSearch } from "@tabler/icons-react";
 import ButtonDotsVertical from "../../components/ButtonDotsVertical/ButtonDotsVertical";
 import FilaPedidos from "./FilaPedidos/FilaPedidos";
 import { defaultPedido } from "./servicesPedido.js";
+import { obtenerPedidos } from "../../apiServices/apiServices.js";
 
 const Pedidos = () => {
-  const [pedidos, setPedidos] = useState(defaultPedido);
+  const [pedidos, setPedidos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [estados, setEstados] = useState([
     "pendiente",
@@ -21,7 +22,7 @@ const Pedidos = () => {
     // se agrega más filtros según sea necesario
   });
   const [ordenamiento, setOrdenamiento] = useState({
-    nro: "nro", // clave por defecto para ordenar
+    nro: "nro_pedido", // clave por defecto para ordenar
     direccion: "asc", // dirección por defecto (ascendente)
   });
 
@@ -59,9 +60,10 @@ const Pedidos = () => {
       ? listaOrdenada
       : listaOrdenada.filter((item) => {
           for (const key in item) {
-            console.log(key);
             if (
-              item[key] !== null && key !== "id" && key !== "imagen" &&
+              item[key] !== null &&
+              key !== "id" &&
+              key !== "imagen_usuario" &&
               item[key]
                 .toString()
                 .toLowerCase()
@@ -78,20 +80,42 @@ const Pedidos = () => {
     setSearchQuery(query);
   };
 
+  useEffect(() => {
+    const obtenerTodosLosPedidos = async () => {
+      try {
+        const res = await obtenerPedidos();
+        // console.log(res);
+        setPedidos(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    obtenerTodosLosPedidos();
+  }, []);
+
   return (
     <div className="containerPedidos">
       <header className="containerHeaderProducto">
         <div className="child1">
           {/* <Button titulo="Nuevo Pedido" navigateTo="/pedido/nuevopedido" /> */}
-          <Button titulo="Nuevo Pedido" navigateTo="/pedido/nuevopedido" />
+          {localStorage.getItem("cargo") === "cajero" ? (
+            <Button titulo="Nuevo Pedido" navigateTo="/pedido/nuevopedido" />
+          ) : (
+            <></>
+          )}
           <SortTable titulo="Ordenar Por" setOrdenamiento={setOrdenamiento}>
             <option value="nro_pedido">Nro pedido</option>
             <option value="nro_mesa">Nro de mesa</option>
-            <option value="estado">Estado</option>
-            <option value="nombre">Cajero</option>
+            <option value="estado_pedido">Estado</option>
+            <option value="primer_nombre_usuario">Cajero</option>
           </SortTable>
 
-          <FilterTable titulo="Estado" setFiltros={setFiltros} clave="estado">
+          <FilterTable
+            titulo="Estado"
+            setFiltros={setFiltros}
+            clave="estado_pedido"
+          >
             {estados.map((estado, index) => {
               return (
                 <option key={index} value={estado}>
@@ -133,7 +157,7 @@ const Pedidos = () => {
         </header>
         <ul className="listProductsQ">
           {listaConBusqueda.map((pedido) => (
-            <FilaPedidos key={pedido.id} pedido={pedido} />
+            <FilaPedidos key={pedido.id_pedido} pedido={pedido}  setPedidos={setPedidos} />
           ))}
         </ul>
       </section>

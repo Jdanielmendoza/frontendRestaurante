@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./TarjetaDeProductoDePedido.css";
 import { IconMinus, IconPlus } from "@tabler/icons-react";
+import useCarrito from "../../Views/Pedidos/NuevoPedido/useCarrito";
 const TarjetaDeProductoDePedido = ({ producto }) => {
+  const { agregarAlCarrito } = useCarrito();
   const [cant, setCant] = useState(0);
 
   const incrementCantProduct = () => {
@@ -22,14 +24,16 @@ const TarjetaDeProductoDePedido = ({ producto }) => {
   };
 
   useEffect(() => {
-    //  localStorage.setItem(producto.id, cant)
-    console.log(producto);
     setCant(
       localStorage.getItem(producto.id)
         ? parseInt(localStorage.getItem(producto.id))
         : 0
     );
   }, []);
+
+  /* if(localStorage.getItem(producto.id) === null){
+    setCant(0); 
+  } */
 
   return (
     <div
@@ -73,6 +77,16 @@ const TarjetaDeProductoDePedido = ({ producto }) => {
           id="inputAgregarProductoDeComida"
           type="button"
           value="Agregar Orden"
+          onClick={() =>
+            cant > 0 &&
+            agregarAlCarrito({
+              id_producto: producto.id,
+              cantidad: cant,
+              nombre : producto.nombre,
+              precio: producto.precio,
+              total : producto.precio * cant
+            })
+          }
         />
       </div>
     </div>
