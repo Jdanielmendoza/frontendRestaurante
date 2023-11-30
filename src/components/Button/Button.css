@@ -16,6 +16,8 @@
     margin-right: 15px;
     cursor: pointer;
 }
+
+
 .containerButton>.IconButtonNew{
     width: 20px;
     color: var(--colorIconButton);

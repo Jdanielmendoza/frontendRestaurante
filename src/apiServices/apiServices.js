@@ -57,7 +57,18 @@ export const registerNewUser = async ({
 }) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/user/registro";
+    console.log({
+      imagen,
+      ci,
+      nombre,
+      telefono,
+      correo,
+      fechaDeNacimiento,
+      contraseña,
+      sexo,
+      id_rol,
+    });
+    const url = baseUrl + "/usuario/registro";
     const sendUser = axios.post(url, {
       imagen,
       ci,
@@ -82,7 +93,7 @@ export const registerNewUser = async ({
   }
 };
 
-export const updateUsuario =async ({
+export const updateUsuario = async ({
   imagen,
   ci,
   nombre,
@@ -95,7 +106,7 @@ export const updateUsuario =async ({
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/usuario";
-    const sendUser = axios.put(url,{
+    const sendUser = axios.put(url, {
       imagen,
       ci,
       nombre,
@@ -143,7 +154,7 @@ export const cambiarContraseña = async (
 ) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/user/cambiarClave";
+    const url = baseUrl + "/usuario/cambiarClave";
     if (nuevaContraseña == verificarContraseña) {
       const passwordPromise = axios.patch(url, {
         ci,
@@ -304,12 +315,14 @@ export const registrarNuevaMesa = async (id, nro, nroSillas) => {
   }
 };
 
-export const updateTable = async (id,nro,nroSillas) => {
+export const updateTable = async (id, nro, nroSillas) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/mesa" ;
+    const url = baseUrl + "/mesa";
     const sendProduct = axios.put(url, {
-      id,nro,nroSillas
+      id,
+      nro,
+      nroSillas,
     });
 
     const result = await toast.promise(sendProduct, {
@@ -327,7 +340,7 @@ export const updateTable = async (id,nro,nroSillas) => {
 export const eliminarMesa = async (id) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/mesa/" + id ;
+    const url = baseUrl + "/mesa/" + id;
     const mesa = axios.delete(url);
     const res = await toast.promise(mesa, {
       loading: "cargando...",
@@ -340,8 +353,12 @@ export const eliminarMesa = async (id) => {
   }
 };
 
-
-export const registrarCategoria = async (id, nombre, descripcion, id_categoria) => {
+export const registrarCategoria = async (
+  id,
+  nombre,
+  descripcion,
+  id_categoria
+) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/categoria";
@@ -349,7 +366,7 @@ export const registrarCategoria = async (id, nombre, descripcion, id_categoria) 
       id,
       nombre,
       descripcion,
-      id_categoria
+      id_categoria,
     });
     const result = await toast.promise(sendCategory, {
       loading: "verificando datos",
@@ -365,8 +382,12 @@ export const registrarCategoria = async (id, nombre, descripcion, id_categoria) 
   }
 };
 
-
-export const actulizarCategoria = async (id, nombre, descripcion, id_categoria) => {
+export const actulizarCategoria = async (
+  id,
+  nombre,
+  descripcion,
+  id_categoria
+) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/categoria";
@@ -374,7 +395,7 @@ export const actulizarCategoria = async (id, nombre, descripcion, id_categoria) 
       id,
       nombre,
       descripcion,
-      id_categoria
+      id_categoria,
     });
     const result = await toast.promise(sendCategory, {
       loading: "verificando datos",
@@ -393,7 +414,7 @@ export const actulizarCategoria = async (id, nombre, descripcion, id_categoria) 
 export const eliminarCategoria = async (id) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/categoria/" + id ;
+    const url = baseUrl + "/categoria/" + id;
     const mesa = axios.delete(url);
     const res = await toast.promise(mesa, {
       loading: "cargando...",
@@ -406,7 +427,6 @@ export const eliminarCategoria = async (id) => {
   }
 };
 
-
 export const getUsers = async () => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -415,6 +435,168 @@ export const getUsers = async () => {
     return usuarios.data;
   } catch (error) {
     console.log(error);
-    return error ; 
+    return error;
+  }
+};
+
+export const crearPedido = async ({
+  id,
+  estado,
+  total,
+  descuento,
+  detalle,
+  fecha,
+  ci_usuario,
+  id_tipodepago,
+  id_mesa,
+  nro,
+  arreglo_de_detalles_de_pedidos,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido";
+    const pedidoPendiente = axios.post(url, {
+      id,
+      estado,
+      total,
+      descuento,
+      detalle,
+      fecha,
+      ci_usuario,
+      id_tipodepago,
+      id_mesa,
+      nro,
+      arreglo_de_detalles_de_pedidos,
+    });
+    const result = await toast.promise(pedidoPendiente, {
+      loading: "cargando...",
+      success: "pedido registrado!",
+      error: "ocurrio un error al crear el pedido",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+export const obtenerPedidos = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido";
+    const pedidos = await axios.get(url);
+    return pedidos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerDetallesPedidos = async (id_pedido) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/" + id_pedido;
+    console.log("fetching");
+    const pedidos = await axios.get(url);
+    return pedidos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerPagos = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipoDePago";
+    const pagos = await axios.get(url);
+    return pagos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const actulizarPedido = async (
+  estado,
+  total,
+  descuento,
+  detalle,
+  id_tipodepago,
+  ci_usuario,
+  idPedido
+) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/"+ idPedido;
+    const sendCategory = axios.put(url, {
+      estado,
+      total,
+      descuento,
+      detalle,
+      id_tipodepago,
+      ci_usuario,
+    });
+    const result = await toast.promise(sendCategory, {
+      loading: "cargando...",
+      success: "se actualizo el pedido!",
+      error: "ocurrio un error al actualizar el pedido!",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+
+//------Pagos ---------------------
+
+// export const obtenerPagos = async () => {
+//   try {
+//     const baseUrl = import.meta.env.VITE_BASE_URL;
+//     const url = baseUrl + "/tipodepago";
+//     const pagos = await axios.get(url);
+//     return pagos.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+
+export const registrarPago = async ({
+  id,
+  nombre,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago";
+    const sendProduct = axios.post(url, {
+      id,
+      nombre,
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const obtenerPago = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago";
+    const categorias = await axios.get(url);
+    return categorias.data;
+  } catch (error) {
+    console.log(error);
   }
 };

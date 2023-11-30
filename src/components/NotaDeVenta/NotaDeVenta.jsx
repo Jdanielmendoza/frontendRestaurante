@@ -1,23 +1,29 @@
-import React from "react";
-/*rafce*/
 import "./NotaDeVenta.css";
-const NotaDeVenta = () => {
+const NotaDeVenta = ({ pedido, detalle_arreglo_pedido }) => {
+  //console.log(detalle_arreglo_pedido);
+  const fecha = new Date(detalle_arreglo_pedido[0]?.currentdate);
+  const day =
+    fecha.getDate() < 9 ? "0".concat(fecha.getDate()) : fecha.getDate();
+  const month =
+    fecha.getMonth() < 9 ? "0".concat(fecha.getMonth()) : fecha.getMonth();
+  const year = fecha.getFullYear();
+
   return (
     <div className="contenedorDeNotaDeVenta">
       <div className="primerParrafo">
         <h4 className="primerTitulo">NOTA DE VENTA</h4>
-        <h6 className="nroPedido">Nro Pedido: 05</h6>
+        <h6 className="nroPedido">Nro Pedido: {pedido.nro_pedido}</h6>
       </div>
 
       <div className="segundoParrafo">
         <div className="segundoParrafoPrimeraFila">
-          <p>VENDEDOR: 9</p>
-          <p>MESA: 8</p>
+          <p>VENDEDOR: {pedido.ci_usuario}</p>
+          <p>MESA: {pedido.nro_mesa}</p>
         </div>
 
         <div className="segundoParrafoSegundaFila">
-          <p>FECHA: 03/09/2026</p>
-          <p>HORA: 15:07:53</p>
+          <p>FECHA: {`${day}/${month}/${year}`}</p>
+          <p>HORA: {detalle_arreglo_pedido[0]?.currenthour}</p>
         </div>
       </div>
 
@@ -29,33 +35,45 @@ const NotaDeVenta = () => {
       </div>
       <hr className="primeraLinea"></hr>
 
-      <div className="cuartoParrafoDeDatos">
-        <p>04</p>
-        <p>POLLO AL HORNO</p>
-        <p>13.00</p>
-        <p>52.00</p>
-      </div>
+      {detalle_arreglo_pedido.length === 0 ? (
+        <div>cargando...</div>
+      ) : (
+        <>
+          <section>
+            {detalle_arreglo_pedido.map((detalle) => {
+              return (
+                <div key={detalle.nombre_producto + detalle.nro_pedido} className="cuartoParrafoDeDatos">
+                  <p className="detalleParrafo" >{detalle.cantidad}</p>
+                  <p className="detalleParrafo" >{detalle.nombre_producto}</p>
+                  <p className="detalleParrafo" >{detalle.precio_producto}</p>
+                  <p className="detalleParrafo" >{detalle.total_detalle}</p>
+                </div>
+              );
+            })}
+          </section>
 
-      <hr className="segundaLinea"></hr>
-      <hr className="terceraLinea"></hr>
-      <div className="quintoParrafoDeTotales">
-        <div className="quintoParrafoPrimeraLinea">
-          <p>SUB TOTAL</p>
-          <p>74.00</p>
-        </div>
-        <div className="quintoParrafoSegundaLinea">
-          <p>DESCUENTO</p>
-          <p>10.00</p>
-        </div>
-        <div className="quintoParrafoTerceraLinea">
-          <p>TOTAL</p>
-          <p>64.00</p>
-        </div>
-      </div>
+          <hr className="segundaLinea"></hr>
+          <hr className="terceraLinea"></hr>
+          <div className="quintoParrafoDeTotales">
+            <div className="quintoParrafoPrimeraLinea">
+              <p>SUB TOTAL</p>
+              <p>bs.{detalle_arreglo_pedido[0]?.total_pedido}</p>
+            </div>
+            <div className="quintoParrafoSegundaLinea">
+              <p>DESCUENTO</p>
+              <p>bs.{detalle_arreglo_pedido[0]?.descuento_pedido}</p>
+            </div>
+            <div className="quintoParrafoTerceraLinea">
+              <p>TOTAL</p>
+              <p>bs.{detalle_arreglo_pedido[0]?.total_raw} </p>
+            </div>
+          </div>
+        </>
+      )}
 
       <div className="sextoParrafo">
         <div className="sextoParrafoPrimeraLinea">
-          <p>ID: 79baaba6-cee9-48cd-9355-b7a0f72f3bc8</p>
+          <p>ID: {pedido.id_pedido}</p>
         </div>
         <div className="sextoParrafoSegundaLinea">
           <p>*** GRACIAS POR SU VISITA ***</p>

@@ -9,20 +9,54 @@
   display: flex;
   flex-direction: column;
   padding: 5px;
+  margin: auto;
+}
+
+#productoFueraDeStock{
+  position: relative;
+}
+#productoFueraDeStock::after{
+  content: "FUERA DE STOCK !";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background-color: #00000077;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s;
+}
+#productoFueraDeStock:active:after{
+  content: "";
+  backdrop-filter: blur(0);
+  background-color: #9365f722;
+}
+
+.contenedorDeTarjetaDeProductoDePedidos:hover .imgDelProducto{
+  object-fit: contain;
 }
 .portadaDelProducto {
   display: flex;
   flex-direction: column;
 }
 .imgDelProducto {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 10px 10px 0 0;
   width: 100%;
   height: 100%;
+  min-height: 95px;
   max-height: 95px;
+  object-fit: cover;
+  transition:all 5s ;
 }
+
 .tituloDelProducto {
   color: #000;
   font-family: Rounded Mplus 1c Bold;
@@ -37,25 +71,28 @@
 .contenedorDelCuerpoDeLaTarjeta {
   display: flex;
   flex-direction: column;
+  margin-top: auto;
 }
 .contenedorDeCantidadYPrecioDelProducto {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 0;
+  padding: 3px 0;
   padding-bottom: 15px;
-  padding-top: 15px;
+  padding-top: 13px;
 }
 
 .precioDelProducto {
   color: #000;
   font-family: Rounded Mplus 1c Bold;
   font-size: 14px;
-  font-style: normal;
-  line-height: normal;
   font-weight: 700;
 }
+*::selection{
+  background-color: #9f73ff94;
+}
+
 .grupoDeButtonDeCantidadDeProducto {
   justify-content: space-between;
   display: flex;
@@ -68,12 +105,10 @@
   align-items: center;
   color: #fff;
   font-family: Rounded Mplus 1c Bold;
-  font-size: 10px;
-  line-height: normal;
-  font-style: normal;
+  font-size: 13px;
   font-weight: 700;
-  width: 22px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   background-color: #5a5878;
   /*despues ver estos puntos*/
   border-radius: 7px;
@@ -81,29 +116,42 @@
   background: #5a5878;
 }
 .inputIncrementAndDecrement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 7px;
-  border: 1px solid #a073ff;
-  width: 22px;
-  height: 24px;
+  border: 1.5px solid #a073ff;
+  width: 26px;
+  height: 25px;
   font-family: Rounded Mplus 1c Bold;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 700;
-  font-style: normal;
-  line-height: normal;
-  padding-bottom: 3px;
   color: #a073ff;
 }
+.inputIncrementAndDecrement:active{
+  background-color: rgb(248, 236, 249);
+}
+.iconMinusProduct{
+  width: 15px;
+  margin: 0 auto;
+}
+
 #inputAgregarProductoDeComida {
   background-color: #a073ff;
-  border-radius: 10px;
+  border-radius: 20px;
   color: #fff;
   font-family: Rounded Mplus 1c Bold;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   font-style: normal;
   line-height: normal;
-  padding: 5px;
+  padding: 5px 1px;
+  cursor: pointer;
+}
+#inputAgregarProductoDeComida:hover{
+  background-color: #8e60f3;
+}
+
+#alertOutStock{
+  background-color: #D96565;
+  color: white;
+  cursor: default;
+  opacity: .7;
 }
