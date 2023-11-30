@@ -27,6 +27,9 @@ import Pedidos from "./Views/Pedidos/Pedidos";
 import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
 import CarritoPedido from "./Views/Pedidos/NuevoPedido/CarritoPedido/CarritoPedido";
 import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
+import CartaDePlato from "./components/CartaDePlato/CartaDePlato";
+import MenuDelDia from "./Views/MenuDelDia/MenuDelDia";
+import CartaDeMenuDelDia from "./Views/CartaDeMenuDelDia/CartaDeMenuDelDia";
 
 function App() {
   return (
@@ -196,6 +199,9 @@ function App() {
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
         <Route path="/rutaDeNotaDeVenta" element={<NotaDeVenta />} />
         <Route path="/CarritoPedido" element={<CarritoPedido />} />
+        <Route path="/CartaDePlatosPrueba" element={<CartaDePlato />} />
+        <Route path="/MenuDelDiaPrueba" element={<MenuDelDia />} />
+        <Route path="/CartaDeMenuDelDiaPrueba" element={<CartaDeMenuDelDia />} />
         
 
         <Route

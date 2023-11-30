@@ -1,0 +1,33 @@
+.ContenedorCartaDePlato {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(160, 115, 255, 0.5);
+  background-color: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(112, 112, 112, 0.25);
+  padding: 10px;
+}
+.PrimeraImg {
+  border-radius: 10px 10px 0px 0px;
+}
+.PrimerParrafo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #000;
+  font-family: Rounded Mplus 1c Bold;
+  font-size: 14px;
+  font-weight: 700;
+}
+.SegundoParrafo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+    font-family: Rounded Mplus 1c Bold;
+    font-size: 14px;
+    font-weight: 700;
+  
+}
