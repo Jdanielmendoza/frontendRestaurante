@@ -315,7 +315,7 @@ export const registrarNuevaMesa = async (id, nro, nroSillas) => {
   }
 };
 
-export const updateTable = async (id, nro, nroSillas) => {
+export const updateTable = async ({id, nro, nroSillas}) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/mesa";
@@ -337,6 +337,8 @@ export const updateTable = async (id, nro, nroSillas) => {
   }
 };
 
+
+
 export const eliminarMesa = async (id) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -352,6 +354,8 @@ export const eliminarMesa = async (id) => {
     console.log(error);
   }
 };
+
+
 
 export const registrarCategoria = async (
   id,
@@ -505,16 +509,6 @@ export const obtenerDetallesPedidos = async (id_pedido) => {
   }
 };
 
-export const obtenerPagos = async () => {
-  try {
-    const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/tipoDePago";
-    const pagos = await axios.get(url);
-    return pagos.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const actulizarPedido = async (
   estado,
@@ -553,17 +547,6 @@ export const actulizarPedido = async (
 
 //------Pagos ---------------------
 
-// export const obtenerPagos = async () => {
-//   try {
-//     const baseUrl = import.meta.env.VITE_BASE_URL;
-//     const url = baseUrl + "/tipodepago";
-//     const pagos = await axios.get(url);
-//     return pagos.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 
 export const registrarPago = async ({
   id,
@@ -590,13 +573,167 @@ export const registrarPago = async ({
 };
 
 
-export const obtenerPago = async () => {
+
+export const obtenerPagos = async () => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/tipodepago";
-    const categorias = await axios.get(url);
-    return categorias.data;
+    const url = baseUrl + "/tipoDePago";
+    const pagos = await axios.get(url);
+    return pagos.data;
   } catch (error) {
     console.log(error);
   }
 };
+
+
+
+export const eliminarPago = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
+    //delete    /tipodepago/:idPago Eliminar
+    const url = baseUrl + "/tipodepago/" + id;
+    const pago = axios.delete(url);
+    const res = await toast.promise(pago, {
+      loading: "cargando...",
+      success: "pago eliminado!",
+      error: "ocurrio un error al tratar de eliminar el pago!",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const updatePago = async ({
+  id,
+  nombre,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago/" + id;
+    const sendPago = axios.patch(url, {
+      nombre,
+    });
+
+    const result = await toast.promise(sendPago, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar!",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+// Insumos
+
+
+
+
+export const registrarInsumo = async ({
+  id,
+  nombre,
+  cantidad,
+  descripcion,
+  ci_usuario,
+  fecha
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/insumo";
+    const sendProduct = axios.post(url, {
+      id,
+      nombre,
+      cantidad,
+      descripcion,
+      ci_usuario,
+      fecha
+    });
+
+    const result = await toast.promise(sendProduct, {
+      loading: "verificando datos",
+      success: "registrado con exito!",
+      error: "ocurrio un error al registrar",
+    });
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+export const obtenerInsumos = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/insumo";
+    const insumos = await axios.get(url);
+    return insumos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+export const eliminarInsumo = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
+    //delete    /tipodepago/:idPago Eliminar
+    const url = baseUrl + "/insumo/" + id;
+    const insumo = axios.delete(url);
+    const res = await toast.promise(insumo, {
+      loading: "cargando...",
+      success: "insumo eliminado!",
+      error: "ocurrio un error al tratar de eliminar el insumo!",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const updateInsumo = async ({
+  id,
+  nombre,
+  cantidad,
+  descripcion,
+  ci_usuario,
+  fecha
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/insumo/" + id;
+    const sendInsumo = axios.put(url, {
+      id,
+      nombre,
+      cantidad,
+      descripcion,
+      ci_usuario,
+      fecha
+    });
+
+    const result = await toast.promise(sendInsumo, {
+      loading: "verificando datos",
+      success: "actualizado con exito!",
+      error: "ocurrio un error al actualizar!",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+

@@ -7,14 +7,25 @@ import { useNavigate, useLocation } from "react-router-dom";
 const FormularioRegistroMesa = () => {
   const [nro, setNro] = useState("");
   const [nroDeSillas, setNroDeSillas] = useState("");
+
   const navigate = useNavigate(); 
+
   const {state} = useLocation();  
 
+  
   const handleSubmitNewTable = async () => {
+    console.log('Hola Angelica');
+    console.log("state: ",state);
+    // e.preventDefault();
     if(state){
         try {
-            const response = await updateTable(state.id, nro, nroDeSillas);
-            console.log(response);
+            const response = await updateTable({
+              id: state.id, 
+              nro, 
+              nroSillas: nroDeSillas
+
+            })
+              
             setTimeout(() => {
               navigate(-1);
             }, 2000);
@@ -25,7 +36,7 @@ const FormularioRegistroMesa = () => {
         try {
             const id = crypto.randomUUID();
             const response = await registrarNuevaMesa(id, nro, nroDeSillas);
-            console.log(response);
+            // console.log(response);
             setTimeout(() => {
               navigate(-1);
             }, 2000);
@@ -91,9 +102,14 @@ const FormularioRegistroMesa = () => {
 
         <input
           type="submit"
-          value="Registrar"
+          
           className="bg-custom-color uppercase text-white font-semibold w-full rounded-md sm:text-2xl py-3 mt-4 hover:bg-purple-600 cursor-pointer"
+         // onClick={(e)=> handleSubmitNewTable(e)}
+          value={
+            state === null ? "Agregar" : "Actualizar"
+          }
         />
+
       </form>
       <Toaster/>
     </div>

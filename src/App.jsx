@@ -35,6 +35,9 @@ import CartaDePlato from "./components/CartaDePlato/CartaDePlato";
 import MenuDelDia from "./Views/MenuDelDia/MenuDelDia";
 import CartaDeMenuDelDia from "./Views/CartaDeMenuDelDia/CartaDeMenuDelDia";
 import ContextPedido from "./Views/Pedidos/NuevoPedido/ContextPedido";
+import FormularioRegistroInsumo from "./components/Insumos/FormularioRegistroInsumo";
+import ListaGeneralInsumo from "./components/Insumos/ListaGeneralInsumo";
+import DetallesInsumo from "./components/Insumos/DetallesInsumo";
 
 
 function App() {
@@ -194,6 +197,44 @@ function App() {
               }
             />
           </Route>
+
+          <Route>
+            <Route
+              path="/insumo"
+              element={
+                <Dashboard>
+                  <ListaGeneralInsumo/>{/* aqui tu componente */}
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/insumo/registro"
+              element={
+                <Dashboard>
+                  <FormularioRegistroInsumo/>{/* aqui tu componente */}
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/insumo/detalle"
+              element={
+                <Dashboard>
+                  <DetallesInsumo/>{/* aqui tu componente */}
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/insumo/edit"
+              element={
+                <Dashboard>
+                  <FormularioRegistroMesa />{/* aqui tu componente */}
+                </Dashboard>
+              }
+            />
+          </Route>
+
         </Route>
 
         <Route path="*" element={<div>ruta no encontrada</div>} />
@@ -205,30 +246,29 @@ function App() {
         <Route path="/lista/header/Mesa" element={<HeaderMesa />} />
         <Route path="/tipodepago/registro" element={<PaymentType />} />
         <Route path="/rutaDeGestionDePerfil" element={<ManageProfile />} />
-        <Route path="/rutaDeNotaDeVenta" element={<NotaDeVenta />} />
-        <Route path="/CarritoPedido" element={<CarritoPedido />} />
-        <Route path="/CartaDePlatosPrueba" element={<CartaDePlato />} />
-        <Route path="/MenuDelDiaPrueba" element={<MenuDelDia />} />
-        <Route path="/CartaDeMenuDelDiaPrueba" element={<CartaDeMenuDelDia />} />
-        
-        <Route path="/rutaDeGestionDePerfil" element={<ManageProfile/>} />
 
-        <Route path="/header/Mesa" element={<HeaderMesa/>} />
+        <Route path="/header/Mesa" element={<HeaderMesa />} />
 
-        <Route path="/header/Mesa/registro" element={<FormularioRegistroMesa/>} />
+        <Route
+          path="/header/Mesa/registro"
+          element={<FormularioRegistroMesa />}
+        />
 
-        <Route path="/header/pedido" element={<HeaderPedido/>} />
-
-
+        <Route path="/header/pedido" element={<HeaderPedido />} />
 
         {/* <Route path="/pagos/nuevo" element={<FormaPago/>} /> */}
-        <Route path="/pagos/nuevo" element={<GestionarPago/>}/>
-        <Route path="/pagos" element={<FilaGeneralGestionarPago/>}/>
+        <Route path="/pagos/nuevo" element={<GestionarPago />} />
 
+        <Route
+          path="/pagos"
+          element={
+            <Dashboard>
+              <FilaGeneralGestionarPago />
+            </Dashboard>
+          }
+        />
 
-
-
-
+        <Route path="/registro/insumo" element ={<FormularioRegistroInsumo/>}/>
       </Routes>
     </>
   );
