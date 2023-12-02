@@ -1,0 +1,48 @@
+.containerPedidos{
+    background-color: #F8F9FC;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 0 0 0;
+    min-width: 870px;
+    padding: 10px;
+    position: relative;
+    overflow: auto;
+}
+
+.headerSalidaTable{
+    color: #746f6f;
+    display: flex;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+.headerSalidaTable>p{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.headerSalidaTable>p:first-child{
+    width: 150px;
+}
+.headerSalidaTable>p:nth-child(2){
+    min-width: 200px;
+    margin-right: 20px;
+}
+.headerSalidaTable>p:nth-child(3){
+    width: 100px;
+}
+
+.headerSalidaTable>p:last-child{
+    width: 100px;
+    margin-left: auto;
+    
+}
+
+
+.containerHeaderNotaDeSalida{
+    padding: 20px;
+}

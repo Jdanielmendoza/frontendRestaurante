@@ -29,11 +29,3 @@ export const defaultPedido = [{
     descuento: "0.00", 
     total: "42.00",
   }]
-
-
-export const bg_color ={
-  pendiente : "#FFEB32",
-  cancelado : "#F05076",
-  terminado : "#99FC76", 
-}
-

@@ -8,6 +8,7 @@ import ButtonDotsVertical from "../../components/ButtonDotsVertical/ButtonDotsVe
 import FilaPedidos from "./FilaPedidos/FilaPedidos";
 import { defaultPedido } from "./servicesPedido.js";
 import { obtenerPedidos } from "../../apiServices/apiServices.js";
+import { Toaster } from "react-hot-toast";
 
 const Pedidos = () => {
   const [pedidos, setPedidos] = useState([]);
@@ -84,7 +85,7 @@ const Pedidos = () => {
     const obtenerTodosLosPedidos = async () => {
       try {
         const res = await obtenerPedidos();
-        // console.log(res);
+//        console.log(res);
         setPedidos(res);
       } catch (error) {
         console.log(error);
@@ -161,6 +162,7 @@ const Pedidos = () => {
           ))}
         </ul>
       </section>
+      <Toaster/>
     </div>
   );
 };

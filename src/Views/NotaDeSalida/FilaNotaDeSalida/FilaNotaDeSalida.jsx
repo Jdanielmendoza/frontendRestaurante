@@ -1,39 +1,37 @@
 import { IconScanEye, IconEdit } from "@tabler/icons-react";
-import "./FilaPedidos.css";
-import { bg_color } from "../servicesPedido";
+import "./FilaNotaDeSalida.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useId, useState } from "react";
-import { obtenerDetallesPedidos, actulizarPedido } from "../../../apiServices/apiServices.js";
+import { obtenerDetallesPedidos } from "../../../apiServices/apiServices.js";
 import NotaDeVenta from "../../../components/NotaDeVenta/NotaDeVenta.jsx";
-import Swal from "sweetalert2";
-import { usePDF } from 'react-to-pdf';
+import { usePDF } from "react-to-pdf";
 
-const FilaPedidos = ({ pedido, setPedidos }) => {
+const FilaNotaDeSalida = ({ pedido }) => {
   const [cargo, setCargo] = useState("administrador");
-  const [detalle_arreglo_pedido, setDetalle_arreglo_pedido] = useState([]);
+  const [detalle_arreglo_pedido, setDetalle_arreglo_pedido] = useState([]); //-------------------------
   const idDialog = useId();
-  const { toPDF, targetRef } = usePDF({filename: 'notaDeVenta.pdf'});
-  const navigate = useNavigate(); 
+  const { toPDF, targetRef } = usePDF({ filename: "notaDeSalida.pdf" });
+  const navigate = useNavigate();
 
   const mostrarNotaDeVenta = () => {
-    const getDetalleDelPedido = async () => {
+    const getDetalleDeLaNotaDeSalida = async () => {
       try {
         const dialog = document.getElementById(idDialog + ":dialog");
         dialog.showModal();
-        const res = await obtenerDetallesPedidos(pedido.id_pedido);
-        setDetalle_arreglo_pedido(res);
+        const res = await obtenerDetallesPedidos(pedido.id_pedido); //UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+        setDetalle_arreglo_pedido(res); //-----------------------------------------------------------
       } catch (error) {
         console.log(error);
       }
     };
-    getDetalleDelPedido();
+    getDetalleDeLaNotaDeSalida();
   };
   const cerrarModalNotaDeVenta = () => {
     const dialog = document.getElementById(idDialog + ":dialog");
     dialog.close();
   };
 
-  const entregarPedido = () => {
+  /*  const entregarPedido = () => {
    if(pedido.estado_pedido ==='pendiente'){
     Swal.fire({
       title: "Estas seguro?",
@@ -72,15 +70,15 @@ const FilaPedidos = ({ pedido, setPedidos }) => {
    }else{
     Swal.fire('el estado del pedido no es pendiente!')
    }
-  };
-
+  };//DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+ */
   useEffect(() => {
     setCargo(localStorage.getItem("cargo"));
   }, []);
 
   return (
     <li
-      className="containerRowPedido"
+      className="containerRowSalida"
       title="ver mas detalles"
       onDoubleClick={() => {
         cargo === "cocinero" ? mostrarNotaDeVenta() : () => {};
@@ -94,51 +92,31 @@ const FilaPedidos = ({ pedido, setPedidos }) => {
         />
         <p className="user-row-nombre">{pedido?.primer_nombre_usuario}</p>
       </div>
-      <p className="pedido-row-precio">{pedido?.nro_pedido}</p>
-      <p className="pedido-row-precio">{pedido?.nro_mesa}</p>
-      <p
-        className="pedido-row-stock"
-        style={{
-          "--bgColor-state": bg_color[pedido.estado_pedido],
-          "--color-text-state":
-            pedido.estado_pedido == "cancelado" ? "#fff" : "#000",
-        }}
-      >
-        {pedido?.estado_pedido}
+
+      <p className="pedido-row-descripcion">
+        alguna descripcino largar de la nota de salida{" "}
+        {/*pedido?.descuento_pedido*/}{" "}
       </p>
-      <p className="pedido-row-descripcion"> {pedido?.descuento_pedido} </p>
+
       <p className="pedido-row-categoria"> {pedido?.total_pedido} </p>
       <div className="actionsRows actionRowsPedido">
-        {cargo === "cajero" ? (
-          <>
-            <IconScanEye
-              stroke="2.5"
-              className="iconRowPedido scanEyePedido"
-              onClick={mostrarNotaDeVenta}
-            />
-            
-              <IconEdit
-                stroke="2.5"
-                className="iconRowPedido IconEditPedido "
-                onClick={()=>navigate('editarPedido',{state:pedido })}
-              />
-          </>
-        ) : (
-          <button
-            className="buttonTerminadoCocinero"
-            title="entregar pedido"
-            onClick={() => entregarPedido()}
-          >
-            ENTREGAR
-          </button>
-        )}
-      </div>
+        <IconScanEye
+          stroke="2.5"
+          className="iconRowPedido scanEyePedido"
+          onClick={mostrarNotaDeVenta}
+        />
 
+        <IconEdit
+          stroke="2.5"
+          className="iconRowPedido IconEditPedido "
+          onClick={() => navigate("editarPedido", { state: pedido })}
+        />
+      </div>
       <dialog id={idDialog + ":dialog"} className="notaDeVentaDialog">
         <div>
           <NotaDeVenta
             Ref={targetRef}
-            pedido={pedido}
+            pedido={pedido} //UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
             detalle_arreglo_pedido={detalle_arreglo_pedido}
           />
           <div>
@@ -163,4 +141,4 @@ const FilaPedidos = ({ pedido, setPedidos }) => {
   );
 };
 
-export default FilaPedidos;
+export default FilaNotaDeSalida;

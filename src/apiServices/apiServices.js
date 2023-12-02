@@ -439,6 +439,10 @@ export const getUsers = async () => {
   }
 };
 
+//--------------------------------------------------------
+//--------------PEDIDOS ---------------------------
+//--------------------------------------------------------
+
 export const crearPedido = async ({
   id,
   estado,
@@ -497,7 +501,6 @@ export const obtenerDetallesPedidos = async (id_pedido) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/pedido/" + id_pedido;
-    console.log("fetching");
     const pedidos = await axios.get(url);
     return pedidos.data;
   } catch (error) {
@@ -516,27 +519,25 @@ export const obtenerPagos = async () => {
   }
 };
 
-export const actulizarPedido = async (
+export const actulizarPedido = async ({
   estado,
   total,
   descuento,
   detalle,
   id_tipodepago,
-  ci_usuario,
-  idPedido
-) => {
+  idPedido,
+}) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const url = baseUrl + "/pedido/"+ idPedido;
-    const sendCategory = axios.put(url, {
+    const url = baseUrl + "/pedido/" + idPedido;
+    const sendPedido = axios.put(url, {
       estado,
       total,
       descuento,
       detalle,
       id_tipodepago,
-      ci_usuario,
     });
-    const result = await toast.promise(sendCategory, {
+    const result = await toast.promise(sendPedido, {
       loading: "cargando...",
       success: "se actualizo el pedido!",
       error: "ocurrio un error al actualizar el pedido!",
@@ -549,26 +550,66 @@ export const actulizarPedido = async (
     toast.error(error.response.data);
   }
 };
+export const actulizarPedido2 = async ({
+  idPedido,
+  id_mesa,
+  id_tipodepago,
+  estado,
+  nro,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/change/" + idPedido;
+    const sendPedido = axios.put(url, {
+      id_mesa,
+      id_tipodepago,
+      estado,
+      nro,
+    });
+    const result = await toast.promise(sendPedido, {
+      loading: "cargando...",
+      success: "se actualizo el pedido!",
+      error: "ocurrio un error al actualizar el pedido!",
+    });
 
+    //console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data);
+  }
+};
+
+export const eliminarPedido = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/" + id;
+    const pedido = axios.delete(url);
+    const res = await toast.promise(pedido, {
+      loading: "cargando...",
+      success: "pedido eliminado!",
+      error: "ocurrio un error al tratar de eliminar el pedido!",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //------Pagos ---------------------
 
-// export const obtenerPagos = async () => {
-//   try {
-//     const baseUrl = import.meta.env.VITE_BASE_URL;
-//     const url = baseUrl + "/tipodepago";
-//     const pagos = await axios.get(url);
-//     return pagos.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+/* export const obtenerPagos = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/tipodepago";
+    const pagos = await axios.get(url);
+    return pagos.data;
+  } catch (error) {
+    console.log(error);
+  }
+}; */
 
-
-export const registrarPago = async ({
-  id,
-  nombre,
-}) => {
+export const registrarPago = async ({ id, nombre }) => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/tipodepago";
@@ -589,13 +630,112 @@ export const registrarPago = async ({
   }
 };
 
-
 export const obtenerPago = async () => {
   try {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = baseUrl + "/tipodepago";
     const categorias = await axios.get(url);
     return categorias.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+export const obtenerCantidadDeVentas = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/reportes/ingresoporventas";
+    const pedidos = await axios.get(url);
+    return pedidos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerVentasSemanales = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/reportes/ventasSemanales";
+    const reporte = await axios.get(url);
+    return reporte.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+//--------------------------------------------------------
+//--------------NOTA DE SALIDA ---------------------------
+//--------------------------------------------------------
+
+export const crearNotaDeSalida = async ({
+  id,
+  total,
+  detalle,
+  fecha,
+  ci_usuario,
+  arreglo_de_detalles_de_pedidos,
+}) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido";
+    const pedidoPendiente = axios.post(url,{
+      id,
+      total,
+      detalle,
+      fecha,
+      ci_usuario,
+      arreglo_de_detalles_de_pedidos,
+    });
+    const result = await toast.promise(pedidoPendiente, {
+      loading: "cargando...",
+      success: "nota de salida registrado!",
+      error: "ocurrio un error al crear la nota de salida",
+    });
+
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response?.data);
+  }
+};
+
+export const obtenerNotasDeSalida = async () => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido";
+    const pedidos = await axios.get(url);
+    return pedidos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerDetallesNotaSalida = async (id_pedido) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/" + id_pedido;
+    const pedidos = await axios.get(url);
+    return pedidos.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eliminarNotaSalida = async (id) => {
+  try {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = baseUrl + "/pedido/" + id;
+    const pedido = axios.delete(url);
+    const res = await toast.promise(pedido, {
+      loading: "cargando...",
+      success: "nota de salida eliminado!",
+      error: "ocurrio un error al tratar de eliminar la nota de salida!",
+    });
+    return res;
   } catch (error) {
     console.log(error);
   }

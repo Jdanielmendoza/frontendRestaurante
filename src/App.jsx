@@ -32,6 +32,10 @@ import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
 import CarritoPedido from "./Views/Pedidos/NuevoPedido/CarritoPedido/CarritoPedido";
 import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
 import ContextPedido from "./Views/Pedidos/NuevoPedido/ContextPedido";
+import FormEditPedido from "./components/FormEditPedido/FormEditPedido";
+import NotaDeSalida from "./Views/NotaDeSalida/NotaDeSalida";
+import ContextNotaDeSalida from "./Views/NotaDeSalida/NuevaNotaDeSalida/ContextNotaDeSalida";
+import NuevaNotaDeSalida from "./Views/NotaDeSalida/NuevaNotaDeSalida/NuevaNotaDeSalida";
 
 function App() {
   return (
@@ -103,6 +107,44 @@ function App() {
                   <ContextPedido>
                     <NuevoPedido />
                   </ContextPedido>
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/pedido/editarPedido"
+              element={
+                <Dashboard>
+                    <FormEditPedido />
+                </Dashboard>
+              }
+            />
+          </Route>
+
+          <Route>
+            <Route
+              path="/notadesalida"
+              element={
+                <Dashboard>
+                  <NotaDeSalida />
+                </Dashboard>
+              }
+            />
+
+            <Route
+              path="/notadesalida/nuevanotadesalida"
+              element={
+                <Dashboard>
+                  <ContextNotaDeSalida>
+                    <NuevaNotaDeSalida />
+                  </ContextNotaDeSalida>
+                </Dashboard>
+              }
+            />
+            <Route
+              path="/pedido/editarPedido"
+              element={
+                <Dashboard>
+                    <FormEditPedido />
                 </Dashboard>
               }
             />

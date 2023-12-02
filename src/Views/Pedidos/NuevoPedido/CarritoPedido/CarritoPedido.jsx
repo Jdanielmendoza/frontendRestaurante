@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./CarritoPedido.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import basurero from "/iconoBasurero.svg";
 import {
   obtenerMesas,
   obtenerPagos,
-  crearPedido
+  crearPedido,
 } from "../../../../apiServices/apiServices.js";
 import useCarrito from "../useCarrito.jsx";
 import { useNavigate } from "react-router-dom";
@@ -28,11 +28,17 @@ const ItemDetalleProducto = ({ id_producto, Cantidad, Nombre, Precio }) => {
 };
 
 const CarritoPedido = () => {
-  const { carrito, actualizarTotal, actualizarDetalle, actualizarNroMesa ,actualizarTipoDePago} =
-    useCarrito();
+  const {
+    carrito,
+    actualizarTotal,
+    actualizarDetalle,
+    actualizarNroMesa,
+    actualizarTipoDePago,
+  } = useCarrito();
   const [mesas, setMesas] = useState([]);
   const [pagos, setPagos] = useState([]);
   const navigate = useNavigate();
+  const [idMesa , setIdMesa] = useState(); 
 
   useEffect(() => {
     const getMesas = async () => {
@@ -41,42 +47,43 @@ const CarritoPedido = () => {
         const res = await obtenerPagos();
         setMesas(result);
         setPagos(res);
+        carrito.id_pago = res[0]?.id ; 
+        carrito.nro_mesa = result[0]?.id; 
       } catch (error) {}
     };
     getMesas();
   }, []);
 
-  const enviarPedido = async()=>{
+  const enviarPedido = async () => {
     console.log(carrito);
     const fecha = new Date();
-      try {
-        const res = await crearPedido({
-          id: uuidv4(),
-          estado:"pendiente",
-          total: carrito.total,
-          descuento:carrito.descuento,
-          detalle : carrito.detalle ,
-          fecha,
-          ci_usuario: carrito.ci_cajero,
-          id_tipodepago : carrito.id_pago ,
-          id_mesa: carrito.nro_mesa ,
-          nro : carrito.nro_pedido,
-          arreglo_de_detalles_de_pedidos: carrito.arreglo_detalle_pedido ,
-        });
-        console.log(res);
-        Swal.fire({
-          icon: 'success',
-          title: 'El pedido se envio a la cocina!',
-          showConfirmButton: false,
-          timer: 2000
-        }).then(()=>{
-          navigate(-1); 
-        }
-        )
-      } catch (error) {
-        console.log(error);
-      }
-  }
+    try {
+      const res = await crearPedido({
+        id: uuidv4(),
+        estado: "pendiente",
+        total: carrito.total,
+        descuento: carrito.descuento,
+        detalle: carrito.detalle,
+        fecha,
+        ci_usuario: carrito.ci_cajero,
+        id_tipodepago: carrito.id_pago,
+        id_mesa: carrito.nro_mesa,
+        nro: carrito.nro_pedido,
+        arreglo_de_detalles_de_pedidos: carrito.arreglo_detalle_pedido,
+      });
+      console.log(res);
+      Swal.fire({
+        icon: "success",
+        title: "El pedido se envio a la cocina!",
+        showConfirmButton: false,
+        timer: 2000,
+      }).then(() => {
+        navigate(-1);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="ContenedorCarritoPedido">
@@ -127,11 +134,18 @@ const CarritoPedido = () => {
           <select
             className="ContenerdorDeNumerosDeMesa"
             onChange={(e) => actualizarNroMesa(e.target.value)}
+            defaultValue={null}
+            required
           >
             <optgroup label="Mesas">
               {mesas.map((mesa) => {
+
                 return (
-                  <option key={mesa.id} value={mesa.id} selected={mesa.id === carrito.nro_mesa}>
+                  <option
+                    key={mesa.id}
+                    value={mesa.id}/* 
+                    selected={mesa.id === carrito.nro_mesa} */
+                  >
                     {mesa.nro}
                   </option>
                 );
@@ -144,11 +158,19 @@ const CarritoPedido = () => {
       <div className="DivNroDeMesas">
         <p className="ParrafoDeNroDeMesas">Tipo de pago</p>
         <div className="OpcionesEngrupo">
-          <select className="ContenerdorDeNumerosDeMesa" onChange={(e) => actualizarTipoDePago(e.target.value)}>
+          <select
+            className="ContenerdorDeNumerosDeMesa"
+            onChange={(e) => actualizarTipoDePago(e.target.value)}
+            defaultValue={null}
+          >
             <optgroup label="Pagos">
               {pagos.map((pago) => {
                 return (
-                  <option key={pago.id} value={pago.id}  selected={pago.id === carrito.id_pago}>
+                  <option
+                    key={pago.id}
+                    value={pago.id}
+                    selected={pago.id === carrito.id_pago}
+                  >
                     {pago.nombre}
                   </option>
                 );
@@ -174,7 +196,7 @@ const CarritoPedido = () => {
           type="button"
           value="Enviar a cocina"
           className="InputEnviarACocina"
-          onClick={()=>enviarPedido()}
+          onClick={() => enviarPedido()}
         />
 
         <div className="UltimoInput">
