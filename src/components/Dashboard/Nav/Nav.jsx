@@ -72,9 +72,7 @@ const Nav = () => {
           NavigateTo="/producto"
         />
 
-        <DropDown icono={<IconUsers stroke={3} />} titulo="Insumos">
-          Insumos
-        </DropDown>
+        <DropDown icono={<IconUsers stroke={3} />} titulo="Insumos" NavigateTo="/insumo" />
         <DropDown
           icono={<IconUsers stroke={3} />}
           titulo="Mesas"

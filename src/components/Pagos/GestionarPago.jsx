@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {registrarPago} from '../../apiServices/apiServices.js'
+import {useNavigate,useLocation} from 'react-router-dom'
+import {registrarPago,updatePago} from '../../apiServices/apiServices.js'
 import { v4 as uuidv4 } from 'uuid'
 import FilaPago from './FilaPago';
 import { Toaster } from 'react-hot-toast';
 
-const GestionarPago = () => {
+const GestionarPago = ({}) => {
 
     const[texto, setTexto] = useState("");
     const[listaPago,setListaPago] = useState([]);
     console.log(texto);
     const navigate = useNavigate();
 
-
+    const { state } = useLocation();   
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -25,8 +25,44 @@ const GestionarPago = () => {
             } catch (error) {
                 console.error('Error al enviar la solicitud POST:', error);
             }
-
         }
+
+
+        
+        const sendData = async (e) => {
+            e.preventDefault();
+            try {
+              if (state == null) {
+                //-*********************-en caso de que por la ruta no se entrega valores
+                await registrarPago({
+                  id: uuidv4(),
+                  nombre:texto,
+                });
+              } else {
+                // ************************caso contrario
+                /* console.log("intentando Actualizar producto..."); */
+                await updatePago({
+                  id: state.idPago,
+                  nombre:texto,
+                });
+              }
+        
+              setTimeout(() => {
+                navigate(-1);
+              }, 1000);
+            } catch (error) {
+              console.log(error);
+              // toast.error("ocurrio algun error");
+            }
+          };
+
+          useEffect(()=>{
+            if(state === null){
+                setTexto("");
+            }else{
+                setTexto(state.nombre);
+            }
+          },[]);
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
@@ -53,9 +89,13 @@ const GestionarPago = () => {
                         </input>
 
                         <button 
-                            onClick={(e)=>handleSubmit(e)}
+
+                            onClick={(e)=>sendData(e) }
+
                             className='w-full rounded-lg text-center bg-ColorLilaBoton uppercase text-white font-semibold shadow-lg py-2 mb-5'>                    
-                            Agregar
+                            {
+                                state === null ? "Agregar" : "Actualizar"
+                            }
                         </button>
 
                         <button 

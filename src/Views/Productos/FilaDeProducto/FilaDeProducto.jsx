@@ -43,6 +43,38 @@ const FilaDeProducto = ({ producto = productoDefault }) => {
     navigate('/producto/edit',{state: {producto}})
   }
 
+
+  // const elimMesa = () => {
+  //   try {
+  //     Swal.fire({
+  //       title: "Estas Seguro?",
+  //       text: "No prodras revertir los cambios!",
+  //       icon: "warning",
+  //       showCancelButton: true,
+  //       confirmButtonColor: "#3085d6",
+  //       cancelButtonColor: "#d33",
+  //       confirmButtonText: "Si, eliminar!",
+  //     }).then(async (result) => {
+  //       if (result.isConfirmed) {
+  //         try {
+  //           const res = await eliminarMesa(mesa.id);
+  //           if (res?.status == 200) {
+  //             Swal.fire("Eliminado!", "La mesa fue eliminada!.", "success");
+  //             setTimeout(() => {
+  //               navigate(-1);
+  //             }, 1000);
+  //           }
+  //         } catch (error) {
+  //           console.log(error);
+  //         }
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+
   return (
     <li className="containerRowProduct" title="ver mas detalles">
       <div className="containImageProduct">
