@@ -1,0 +1,119 @@
+.ContenedorDeMenuDelDia {
+  border-radius: 20px;
+  background-color: #f8f9fc;
+  backdrop-filter: blur(2px);
+  margin: 7px;
+  border-radius: 20px 20px 0px 0px;
+  padding-bottom: 20px;
+}
+.ContenedorDeFondoMenuDelDia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border-radius: 20px 20px 0px 0px;
+  mix-blend-mode: multiply;
+}
+.PrimerGrupoDeParrafoMenuDelDia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.PrimerParrafoMenuDelDia {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: Rockwell;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 20px; /* 31.25% */
+}
+.SegundoParrafoMenuDelDia {
+  text-align: center;
+  font-family: Rockwell;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px; /* 62.5% */
+  padding: 5px;
+  padding-top: 15px;
+}
+.TercerParrafoMenuDelDia {
+  text-align: center;
+  font-family: Rockwell;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px; /* 62.5% */
+  padding-top: 20px;
+}
+.PrimetInputMenuDelDia {
+  border-radius: 50px;
+  padding: 0 35px 0 35px;
+  background-color: #89848499;
+
+  margin-top: 10px;
+  color: #f8f9fc;
+
+  opacity: 1;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  text-align: center;
+  font-family: Rockwell;
+}
+.PrimeraLineaDelMenuDelDia {
+  background: rgba(160, 115, 255, 0.5);
+  padding: 2px;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.GrupoDeLaParteDeAbajoMenuDelDia {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding-top: 20px;
+}
+.TercerGrupoDeParrafoMenuDelDia {
+  color: #000;
+  text-align: center;
+  font-family: Rockwell;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px; /* 62.5% */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+.SextoParrafoMenuDelDia {
+}
+.SeptimoParrafoMenuDelDia {
+}
+.OctavoParrafoMenuDelDia {
+}
+.IconoDelCelularMenuDelDia {
+}
+.NovenoParrafoMenuDelDia {
+}
+.CuartoGrupoDeParrafoMenuDelDia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+.IconoDeUbicacionMenuDelDia {
+}
+.DecimoParrafoMenuDelDia {
+}

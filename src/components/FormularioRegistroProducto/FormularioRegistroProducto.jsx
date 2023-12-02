@@ -20,6 +20,7 @@ const FormularioRegistroProducto = () => {
   const [stock, setStock] = useState();
   const [descripcion, setDescripcion] = useState();
   const [categoria, setCategoria] = useState();
+
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ const FormularioRegistroProducto = () => {
           success: "imagen Subida",
           error: "error al subir la Imagen",
         });
-        if (state == null) {
+        if (state == null) {  //-*********************-en caso de que por la ruta no se entrega valores
           await registerNewProduct({
             imagen: imagenEnLaNube.data.secure_url,
             id: crypto.randomUUID(),
@@ -47,7 +48,7 @@ const FormularioRegistroProducto = () => {
             stock,
             id_categoria: categoria,
           });
-        } else {
+        } else { // ************************caso contrario
           /* console.log("intentando Actualizar producto..."); */
           await updateProduct({
             imagen:imagenEnLaNube.data.secure_url,
@@ -81,6 +82,7 @@ const FormularioRegistroProducto = () => {
     }
   };
 
+
   const handleInputChangeImage = (e) => {
     setImagen(null);
     setFile(e.target.files[0]);
@@ -92,6 +94,7 @@ const FormularioRegistroProducto = () => {
       /* console.log(e.target.files[0]); */
     }
   };
+
 
   useEffect(() => {
     const obtenerCategoriasP = async () => {
