@@ -31,10 +31,14 @@ import Pedidos from "./Views/Pedidos/Pedidos";
 import NuevoPedido from "./Views/Pedidos/NuevoPedido/NuevoPedido";
 import CarritoPedido from "./Views/Pedidos/NuevoPedido/CarritoPedido/CarritoPedido";
 import NotaDeVenta from "./components/NotaDeVenta/NotaDeVenta";
+import CartaDePlato from "./components/CartaDePlato/CartaDePlato";
+import MenuDelDia from "./Views/MenuDelDia/MenuDelDia";
+import CartaDeMenuDelDia from "./Views/CartaDeMenuDelDia/CartaDeMenuDelDia";
 import ContextPedido from "./Views/Pedidos/NuevoPedido/ContextPedido";
 import FormularioRegistroInsumo from "./components/Insumos/FormularioRegistroInsumo";
 import ListaGeneralInsumo from "./components/Insumos/ListaGeneralInsumo";
 import DetallesInsumo from "./components/Insumos/DetallesInsumo";
+
 
 function App() {
   return (
